@@ -1,0 +1,1654 @@
+@charset "utf-8";
+/* CSS Document */
+body{font-family:'宋体',Arial, Helvetica, sans-serif;font-size:12px;margin:0;padding:0;background:#fff;color:#333}
+div{margin:0 auto;padding:0}
+ul,li,h1,h2,h3,h4,p,dl,dd,dt,form{margin:0;padding:0;font-weight:normal}
+li{list-style:none}
+img{border:0;display:block}
+a{color:#444;text-decoration:none}
+a:hover{color:#f60}
+input,textarea,input:focus,textarea:focus{outline:none}
+textarea{resize:none}
+.text-color-red{font-style:normal;color:#e44}
+.i-nav li a, .i-h-tags dt a, .footer dt, .title, .comment-title{font-family:"微软雅黑","microsoft yahei",verdana,lucida,arial,sans-serif,"黑体";_font-weight:bold}
+
+textarea{overflow:hidden}
+
+.opacity-bg{background:#000;filter:alpha(opacity=60);opacity:0.6;-moz-opacity:0.6;}
+.clear{clear:both;overflow:hidden;height:1px}
+.header{height:135px;width:100%}
+.index-header{height:225px;width:100%;box-shadow:0 2px 2px 0 #f4f4f4;border-bottom:1px solid #dedede}
+.header-wrap{width:1000px;height:90px}
+
+/*登录 -开始*/
+.i-logo{float:left;display:block;width:354px;height:90px;background:url(../img/diaoyu123_logo.png?20170112) no-repeat}
+.i-logo h1 , .i-logo span{display:none}
+.h-w-right{float:right;width:260px;height:90px;}
+.i-login-box{height:20px;padding:12px 0;}
+.i-login,.i-register,.i-login-qq,.i-login-weixin{float:right;display:block;color:#666;padding:0 10px;height:20px;line-height:20px}
+.v-line{float:right;color:#666;height:20px;line-height:20px}
+.i-login-qq,.i-login-weixin{background:url(../img/diaoyu123_common_icon.png) -180px -153px no-repeat;padding-left:22px;}
+.i-login-weixin{background-position:-178px -180px;padding:0 0 0 25px}
+
+.i-login-yes{position:relative;height:24px;}
+.i-login-yes li{float:right;height:24px;line-height:20px}
+.imessage{padding-left:18px;background:url(../img/diaoyu123_user.png) -187px -61px no-repeat}
+.imessage a{color:#666;}
+.imessage span{color:#f6801c;}
+.i-level{margin-right:25px;height:14px;margin-top:3px;}
+.username-box{margin-right:10px}
+.username-box .username{display:inline-block;height:20px;color:#2670d3;padding-left:15px;background:url(../img/diaoyu123_user.png) -189px -39px no-repeat}
+.i-login-user-info{display:none;position:absolute;right:0;top:22px;z-index:100;background:#fff;padding:10px 10px 0;width:233px;height:155px;border:1px solid #ededed}
+.username-box-icon{display:block;position:absolute;margin:-15px 0 0 70px;width:10px;height:5px;background:url(../img/diaoyu123_user.png) -190px -122px no-repeat}
+
+.user-info-top{height:50px;padding-bottom:10px;border-bottom:1px solid #f2f2f2}
+.user-info-top .user-avatar ,.user-info-top .user-avatar img{width:50px;height:50px;}
+.user-info-top .user-avatar{float:left;margin-right:5px;}
+.user-info-top span{display:block;float:left;width:178px;height:13px;background:url(../img/diaoyu123_user.png) no-repeat}
+.level-progress-bg{margin-top:5px;position:relative;z-index:1}
+.level-progress-bg i{position:absolute;z-index:3}
+.level-progress-bg .level-left{top:3px;left:2px}
+.level-progress-bg .level-right{top:3px;right:0}
+.user-info-top .level-progress{ position:absolute;z-index:2;background-position:0 -15px;width:100%}
+
+.user-info-top .score{margin-top:10px;color:#f0a62a;padding-left:25px;display:inline-block;height:16px;line-height:16px;background:url(../img/diaoyu123_user.png) -184px -91px no-repeat}
+.user-info-top .score:hover{color:#f60;}
+
+
+.user-info-middle{padding-top:10px;color:#ccc;margin-left:-10px}
+.user-info-middle a{display:inline-block;margin:0 12px}
+.user-info-bottom{color:#666;height:32px;line-height:32px;background:#f7f7f7;text-align:right;width:233px;padding:0 10px;margin:12px -10px 0}
+.user-info-bottom a{display:inline-block;color:#666;margin:0 5px;}
+.user-info-bottom a:hover{color:#f60}
+
+/*等级*/
+.level_icon{display:inline-block;width:43px;height:14px;background:url(../img/diaoyu123_user.png) 0 -31px no-repeat}
+.icon_lv1{background-position:0 -31px}
+.icon_lv2{background-position:0 -48px}
+.icon_lv3{background-position:0 -65px}
+.icon_lv4{background-position:0 -82px}
+.icon_lv5{background-position:0 -99px}
+.icon_lv6{background-position:0 -116px}
+.icon_lv7{background-position:0 -133px}
+.icon_lv8{background-position:0 -150px}
+.icon_lv9{background-position:0 -167px}
+.icon_lv10{background-position:0 -184px}
+.icon_lv11{background-position:0 -201px}
+.icon_lv12{background-position:0 -218px}
+
+.level_text{display:inline-block;width:23px;height:7px;background:url(../img/diaoyu123_user.png) -46px -31px no-repeat}
+.text_lv1{background-position:-46px -31px}
+.text_lv2{background-position:-46px -48px}
+.text_lv3{background-position:-46px -65px}
+.text_lv4{background-position:-46px -82px}
+.text_lv5{background-position:-46px -99px}
+.text_lv6{background-position:-46px -116px}
+.text_lv7{background-position:-46px -133px}
+.text_lv8{background-position:-46px -150px}
+.text_lv9{background-position:-46px -167px}
+.text_lv10{background-position:-46px -184px}
+.text_lv11{background-position:-46px -201px}
+.text_lv12{background-position:-46px -218px}
+
+/*登录 -结束*/
+
+/*搜索 -开始*/
+.i-search{border:1px solid #dbdbdb;width:258px;height:25px;border-radius:2px;overflow:hidden}
+.i-search input{border:none;background:none}
+.i-search .i-s-keys{float:left;width:224px;_width:218px;padding-left:5px;color:#dbdbdb;height:25px;line-height:25px;overflow:hidden}
+.i-search .i-s-keys::-webkit-input-placeholder{color:#dbdbdb}
+.i-search .i-s-keys:-moz-placeholder{color:#dbdbdb}
+.i-search .i-s-keys::-moz-placeholder{color:#dbdbdb}
+.i-search .i-s-keys:-ms-input-placeholder{color:#dbdbdb}
+.i-search .i-s-submit{float:right;width:27px;height:25px;background:url(../img/diaoyu123_common_icon.png) 0 -64px no-repeat;cursor:pointer}
+/*搜索 -结束*/
+
+/*百度搜索 -开始*/
+.bdcs-container .bdcs-main,.bdcs-container .bdcs-main *{box-sizing:content-box;margin:0;padding:0;float:none;clear:none;overflow:hidden;white-space:nowrap;word-wrap:normal;border:0;background:none;width:auto;height:auto;max-width:none;min-width:none;max-height:none;min-height:none;border-radius:0;box-shadow:none;transition:none;text-align:left;}
+.bdcs-container .bdcs-main{overflow:hidden}
+.bdcs-container .bdcs-search{display:block;overflow:visible;position:relative;border-style:solid;}
+.bdcs-container .bdcs-search-form-input{display:inline-block;vertical-align:top;text-indent:5px;float:left;width:224px;height:25px;line-height:25px;padding-left:5px;font-family:Arial,SimSun,sans-serif;color:#000000;font-size:14px;border-radius:0px;background-color:#FFFFFF;}
+.bdcs-container .bdcs-search-form-input:focus{border:0}
+.bdcs-container .bdcs-search-form-submit{float:right;width:27px;height:25px;line-height:25px;cursor:pointer;background:url(../img/diaoyu123_common_icon.png) 0 -64px no-repeat;}
+.bdcs-container .bdcs-search-form-submit-magnifier{width:27px;padding:0;overflow:hidden;}
+.bdcs-container .bdcs-search{width:258px;height:25px;overflow:visible;border-color:#ffffff;border-radius:0px;border-width:0px;box-shadow:none;background-color:none;}
+/*百度搜索 -结束*/
+
+/*导航 -开始*/
+.i-nav{height:42px;width:100%;background:#225599;border-top:3px solid #143e77;border-bottom:1px solid #f4f4f4}
+.i-nav ul{width:1000px;margin:0 auto;height:42px}
+.i-nav li{padding-left:2px;width:60px;float:left;background:url(../img/diaoyu123_common_icon.png) 0 -549px no-repeat}
+.i-nav .i-nav_1{margin-left:-15px;background:none}
+.i-nav li a{display:block;width:100%;font-size:16px;height:39px;line-height:39px;color:#fff;text-align:center;border-radius:2px}
+.i-nav li a:hover,.i-nav li a.hover{color:#f90}
+.i-nav li.i-nav-publish{float:right;width:110px;height:45px;margin-top:-3px;position:static;background:none;padding:0}
+.i-nav li.i-nav-publish a{height:100%;width:65px;padding-left:45px;text-align:left;line-height:45px;background:url(../img/diaoyu123_common_icon.png) -52px -435px no-repeat;}
+.i-nav li.i-nav-publish a:hover,.i-nav li.i-nav-publish a.hover{background:url(../img/diaoyu123_common_icon.png) -52px -481px no-repeat;color:#f90}
+.i-nav li a i{display:block;width:29px;height:18px;position:relative;margin:-50px 0 0 40px;_margin-left:35px;background:url(../img/diaoyu123_common_icon.24.png) 0 -383px no-repeat;_background:url(../img/diaoyu123_common_icon.24.ie6.png) 0 -383px no-repeat;}
+/*导航 -结束*/
+
+/*导航下频道标签 -结束*/
+.i-h-tags{padding:17px 0 13px;height:60px;overflow:hidden}
+.i-h-tags dl{float:left;margin-right:25px}
+.i-h-tags dt{float:left;margin-right:18px;width:37px;height:60px;background:url(../img/diaoyu123_common_icon.png) no-repeat;overflow:hidden}
+.i-h-tags dt a{display:block;width:100%;height:100%;line-height:96px;text-align:center;color:#525252;font-size:16px;}
+.i-h-tags dd{line-height:20px;height:20px;overflow:hidden;}
+.i-h-tags dd a{margin-right:10px;color:#7c7c7c}
+.i-h-tags dt a:hover,.i-h-tags dd a:hover{color:#f60}
+.i-h-bait{width:220px}
+.i-h-skills{width:332px}
+.i-h-skills dt{background-position:-43px 4px}
+.i-h-video{width:280px}
+.i-h-video dt{background-position:-83px 2px}
+.i-h-video dt a{line-height:94px}
+
+.i-h-weixin{width:66px;height:84px;float:right;margin:-13px 22px 0 0}
+.i-h-weixin img{width:66px;height:66px}
+.i-h-weixin span{display:block;width:66px;height:20px;line-height:20px;text-align:center;color:#7c7c7c}
+/*导航下频道标签 -结束*/
+
+/**/
+.main{width:1000px;overflow:hidden;margin-top:20px}
+.channel-main{width:1000px;overflow:hidden;margin-top:0}
+
+/*底部 -开始*/
+.footer{background:#f3f3f3;padding:30px 0;border-top:1px solid #e5e5e5;margin-top:20px}
+.footer-wrap{width:1000px;overflow:hidden}
+.footer a{color:#666;}
+.footer a:hover{color:#f60;}
+.web-data,.about{float:left;width:284px;height:150px;border-right:1px solid #e5e5e5;color:#666}
+.web-data dt{font-size:18px;margin-bottom:15px}
+.web-data dd{height:30px;}
+.web-data span{font-family:Georgia;color:#e64849;font-size:20px;margin-right:5px}
+.about{width:370px;padding-left:30px;}
+.about dl{float:left;width:170px}
+.about dt{font-size:14px;margin-bottom:15px;}
+.about dd{height:26px;line-height:26px;}
+.other-platforms{float:right;width:230px;height:150px;}
+.other-platforms li{float:left;width:106px;height:150px;}
+.other-platforms .footer-weixin{margin-right:15px}
+.other-platforms li a{display:block;width:100%;height:100%;}
+.other-platforms li img{width:106px;height:106px}
+.other-platforms .footer-weixin img{width:98px;height:98px;border:4px solid #fff}
+.other-platforms li span{display:block;width:100%;height:36px;margin-top:8px;line-height:18px;text-align:center;color:#666}
+.footer-app{margin-right:30px}
+
+.copyright{_height:50px;padding-top:15px;margin-top:25px;border-top:1px solid #e5e5e5;color:#666;overflow:hidden}
+.copyright-logo{display:block;float:left;width:150px;height:44px;background:url(../img/diaoyu123_logo.png?20170112) 0 -95px no-repeat}
+.copyright p{float:left;width:590px;height:22px;line-height:22px;}
+.copyright-record{display:block;float:right;width:189px;height:30px;margin-top:-12px;background:url(../img/diaoyu123_copyright_record.png?v=20151013) no-repeat}
+/*底部 -结束*/
+
+/*频道标题 、 更多 、详情 --开始*/
+.index-channel-title{border-bottom:2px solid #259;height:24px;line-height:24px;margin-top:23px;padding-bottom:9px;overflow:hidden}
+.index-channel-title .i-c-title,.index-channel-title .i-c-title a{float:left;text-align:left;font-size:22px;color:#259}
+.index-channel-title .more{line-height:36px}
+.index-channel-title .i-c-title a:hover{color:#f60}
+.more{float:right;text-align:right;color:#259;font-family:'宋体'}
+.more:hover{color:#f60}
+
+.details{color:#259;margin-left:5px}
+.details a{color:#259;padding:0 2px}
+.details a:hover{color:#f60}
+/*频道标题 、 更多 、详情 --结束 */
+
+/*排行榜 --结束 */
+.click-rank{width:100%;overflow:hidden}
+.click-rank dt{color:#666;width:100%;height:18px;line-height:18px;font-size:16px;font-weight:bold;margin-bottom:7px}
+.click-rank dd{display:block;height:26px;line-height:26px;overflow:hidden}
+.click-rank dd i{font-style:normal;font-family:"Arial";float:left;width:17px;height:14px;line-height:14px;text-align:center;background:#d4d4d4;color:#fff;margin-top:6px}
+.click-rank dd i.rank{background:#f90}
+.click-rank dd a{float:left;width:283px;font-size:12px;text-indent:10px}
+/*排行榜 --结束 */
+
+/*单张图片、多个文字列表显示 -开始*/
+.c-c-pic{height:90px}
+.c-c-pic li{float:left}
+.c-c-pic .img{height:90px;width:130px;margin-right:15px}
+.c-c-pic .img img{height:90px;width:130px}
+.c-c-pic .title{width:205px;height:34px;line-height:34px;font-size:13px;font-weight:bold;font-family:'宋体',Arial, Helvetica, sans-serif;overflow:hidden}
+.c-c-pic .text{width:205px;height:56px;line-height:18px;color:#777;overflow:hidden}
+
+.c-c-text{padding-top:5px}
+.c-c-text li{width:350px;height:28px;line-height:28px;overflow:hidden;*height:26px;*line-height:26px}
+.c-c-text li a{width:310px;font-size:14px;text-indent:10px;background:url(../img/diaoyu123_common_icon.24.png) -31px 12px no-repeat;float:left;_background:url(../img/diaoyu123_common_icon.24.ie6.png) -31px 12px no-repeat;float:left}
+.c-c-text li span{width:40px;color:#999;text-align:right;float:right}
+/*单张图片、多个文字列表显示 -开始*/
+
+/*点评积分 -开始*/
+.index-store{overflow:hidden;width:660px}
+.index-store dl{width:300px;float:left;margin-right:30px}
+.index-store dt{height:50px;line-height:50px;font-size:18px}
+.index-store dt a{color:#25a}
+.index-store dt a:hover{color:#f60}
+.index-store dd{width:288px;height:63px;padding:5px;border:1px solid #efefef;margin-bottom:15px}
+.index-store dd img{float:left;width:90px;height:63px;margin-right:5px}
+.index-store dd a{float:left;display:block;width:190px;height:18px;line-height:18px;margin-bottom:5px}
+.index-store dd span{float:left;display:block;width:190px;height:18px;line-height:18px;color:#999}
+
+.i-bbs-review{width:360px}
+.i-bbs-review dt{width:350px;height:40px;line-height:40px;border-bottom:1px solid #ededed}
+.i-bbs-review dt .title{float:left;font-size:20px}
+.i-bbs-review dd{float:left;width:170px;height:240px;margin:7px 10px 0 0}
+.i-bbs-review dd img{width:170px;height:170px}
+.i-bbs-review dd .text{width:100%;height:36px;line-height:18px;margin:5px 0;overflow:hidden}
+.i-bbs-review dd span{float:left;width:110px;height:18px;line-height:18px}
+.i-bbs-review dd p a{float:right;width:60px;text-align:right;color:#999;height:18px;line-height:18px}
+.i-bbs-review dd p a:hover{color:#f60}
+
+.score-box{display:block;width:110px;height:18px;line-height:18px;color:#f60 !important}
+.score-bg-box{width:78px !important;margin-right:5px;}
+.score-bg-box i{float:left;display:inline-block;width:100%;height:18px;background:url(../img/diaoyu123_common_icon.png) 0 -120px no-repeat}
+.score-bg-box .score-red-bg{background-position:0 -100px;width:80%;margin-top:-18px}
+
+/*点评积分 -结束*/
+
+/*评论 --开始*/
+.comment{width:678px;overflow:hidden}
+.comment-form{height:100px;padding-top:5px;position:relative;}
+.comment-title{font-size:20px;color:#252525;height:42px;line-height:42px;overflow:hidden}
+.comment-title span{float:left}
+.comment-title p{text-align:right; font-family:'宋体';font-size:12px;color:#999}
+.comment-title p a{color:#999;margin:0 5px;}
+.comment-title p a:hover{color:#f60}
+.comment-title i{float:left;margin-left:4px;font-style:normal;color:#999;font-size:12px;line-height:44px}
+.comment-title i b{font-weight:normal}
+.comment-form form{width:680px;margin:0 auto}
+.comment-input{float:left;padding:0 70px 0 5px;width:481px;_width:476px;height:48px;line-height:48px;border:1px solid #dfdfdf;border-right:none;box-shadow:1px 1px 2px #ededed inset;}
+.comment-submit{float:left;cursor:pointer;width:120px;height:50px;line-height:50px;font-size:20px;color:#fff;text-shadow:1px 0 2px #a8b3c7;padding:0;border:none;margin:0;background:url(../img/diaoyu123_common_icon.png) -10px -265px no-repeat;font-family:"微软雅黑","microsoft yahei"}
+.comment-submit:hover{ background-position:-10px -212px}
+.text-length{position:absolute;left:487px;_left:480px;top:50px;display:block;width:67px;height:44px;line-height:44px;padding-right:3px;text-align:right;background:#fff;}
+.comment-list{overflow:hidden;margin-top:-8px}
+.comment-list li{width:100%;padding:10px 0;border-bottom:1px dashed #e6e6e6;overflow:hidden;}
+.comment-list li:last-child{border:none}
+.comment-list .nocomment{padding:20px 0 60px;border-bottom:none;text-align:center}
+.comment-avatar{float:left;margin-right:10px}
+.comment-avatar , .comment-avatar img{width:50px;height:50px}
+
+.comment-content{float:left;width:460px}
+.comment-content a{height:20px;line-height:20px;overflow:hidden;color:#999}
+.comment-content a:hover{color:#f60}
+.comment-content p{margin-top:6px;line-height:20px;word-break:break-all;word-wrap:break-word}
+.comment-ding{float:right;width:52px}
+.comment-ding a{padding-left:19px;display:block;height:18px;line-height:18px;margin-top:27px;background:url(../img/diaoyu123_common_icon.png) -185px -386px no-repeat}
+/*评论 --结束*/
+/*信息提示 -开始*/
+#dyTips{width:250px;box-shadow:0px 0px 6px #999;line-height:30px;padding:10px 10px;border-radius:4px;background:#fcf9a1;color:#666;font-size:14px;text-align:center;position:fixed;_position:absolute;z-index:100;margin:0 auto}
+#dyTips p{filter:alpha(opacity=100);-moz-opacity:1;opacity:1;}
+/*信息提示 -结束*/
+
+/**
+ * 公用小模块 ==开始
+ */
+
+/*左侧一张图片，右侧一个标题一段文字介绍 -开始*/
+.c-c-pic{height:90px}
+.c-c-pic li{float:left}
+.c-c-pic .img{height:90px;width:130px;margin-right:15px}
+.c-c-pic .img img{height:90px;width:130px}
+.c-c-pic .title{width:205px;height:34px;line-height:34px;font-size:14px;font-weight:bold;overflow:hidden}
+.c-c-pic .text{width:205px;height:56px;line-height:18px;color:#777;overflow:hidden}
+
+.c-c-text{padding-top:5px}
+.c-c-text li{width:350px;height:28px;line-height:28px;overflow:hidden;*height:26px;*line-height:26px}
+.c-c-text li a{width:310px;font-size:14px;text-indent:10px;background:url(../img/diaoyu123_common_icon.24.png) -31px 12px no-repeat;float:left;_background:url(../img/diaoyu123_common_icon.24.ie6.png) -31px 12px no-repeat;float:left}
+.c-c-text li span{width:40px;color:#999;text-align:right;float:right}
+/*左侧一张图片，右侧一个标题一段文字介绍 -结束*/
+
+
+
+/**
+ * 公用小模块 ==结束
+ */
+
+/* 钓鱼图片列表 渔具品牌 -开始*/
+.i-pic-list{width:1012px;overflow:hidden}
+.i-pic-list li{float:left;width:190px;height:162px;margin-right:12px;margin-top:14px}
+.i-pic-list li a{display:block;width:100%;height:100%;}
+.i-pic-list li img{width:190px;height:132px}
+.i-pic-list li span{background:#f3f3f3;display:block;width:100%;height:30px;text-align:center;line-height:30px;overflow:hidden}
+
+.i-brand-list li{height:130px}
+.i-brand-list li img{width:190px;height:100px}
+/*钓鱼图片列表  渔具品牌 -结束*/
+
+/*入门标签及属性 -开始*/
+.beginner-box{width:228px;padding-top:10px;border:1px solid #e5e5e5;border-bottom:none;background:#fafafa}
+.beginner-title{height:26px;line-height:26px;padding:0 10px;width:208px}
+.beginner-title .title{float:left;font-size:16px;font-weight:bold;color:#666}
+.beginner-title .title:hover{color:#f60}
+.beginner-box dl{border-bottom:1px solid #e5e5e5;padding:2px 0 5px;overflow:hidden}
+.beginner-box dt{padding-left:15px;height:24px;line-height:24px;}
+.beginner-box dt a{display:block;font-weight:bold;padding-left:22px;height:24px;background:url(../img/diaoyu123_common_icon.png) -181px -65px no-repeat}
+.beginner-box dd{height:20px;line-height:20px;padding-left:32px;overflow:hidden}
+.beginner-box dd a{margin:0 5px;color:#666}
+.beginner-box dd a:hover{color:#f60}
+
+.beginner-box-big{width:298px}
+.beginner-box-big .beginner-title{width:278px}
+/*入门标签及属性 -结束*/
+
+/*站点地图 反馈意见 投稿 我的投稿 发布渔具店公用头部 -开始*/
+.content-list-border{width:998px;border:1px solid #cfdde8;border-top:2px solid #259;padding-bottom:40px}
+.content-list-border .map{height:36px;line-height:36px;padding-left:20px;border-bottom:1px solid #cfdde8;background:#f4f8fb}
+.content-list-border .map span{color:#333}
+
+/*站点地图 反馈意见 投稿 我的投稿 发布渔具店公用头部 -结束*/
+
+/*input、textarea  placeholder属性颜色值*/
+input:-moz-placeholder,textarea:-moz-placeholder{color:#aaa}
+input:-ms-input-placeholder,textarea:-ms-input-placeholder{color:#aaa}
+input::-webkit-input-placeholder,textarea::-webkit-input-placeholder{color:#aaa}
+
+/*公用列表分页样式属性*/
+.page{margin:0 14px;padding:20px 0 10px;text-align:center;height:34px;line-height:34px}
+.page i{font-style:normal}
+.page a,.page i{display:inline-block;border:1px solid #e3e3e3;height:32px;line-height:32px;text-align:center;margin-right:8px;padding:0 13px;color:#888;font-size:14px;-webkit-border-radius:2px;-moz-border-radius:2px;border-radius:2px}
+.page span{display:inline-block;height:32px;line-height:32px;border:1px solid #e3e3e3;margin-right:8px;padding:0 4px 0 8px;font-size:14px;color:#888;-webkit-border-radius:2px;-moz-border-radius:2px;border-radius:2px}
+.page a.hover,.page a:hover{background:#436aa8;color:#fff;border:1px solid #436aa8}
+
+
+/*右侧浮框 返回顶部*/
+.fixed-box{width:50px;height:120px;border-radius:2px;position:fixed;background:url(../img/fix_bg.png) no-repeat; border-radius:2px}
+.fixed-box a{display:block;width:50px;height:34px;padding-top:6px;color:#fff;text-align:center;_overflow:hidden}
+.fixed-box a span{display:none;height:34px}
+.fixed-box a span.weixin-fix{width:196px;height:196px;padding:10px 0 10px;background:#638dc9;border-radius:2px;margin:-135px 0 0 -206px;*margin-left:-266px;position:relative}
+.fixed-box .weixin-fix img{display:block;margin:0 auto;width:164px;height:164px;padding:6px;background:#fff}
+.fixed-box .weixin-fix p{text-align:center;height:24px;line-height:24px;overflow:hidden;color:#fff;font-size:14px; font-family:"微软雅黑","microsoft yahei"}
+.fixed-box .weixin-fix i{display:block;float:right;width:4px;height:8px;background:url(../img/fix_bg.png) -56px 0 no-repeat;margin:-100px -4px 0 0; _zoom:1;_position:relative}
+.fixed-box a:hover{background:#638dc9;color:#fff; border-radius:2px}
+
+/*公用面包屑*/
+.map{height:36px;line-height:36px;color:#ccc;overflow:hidden}
+.map a{display:block;float:left;color:#333;padding:0 6px 0 8px}
+.map a.m-padding{padding-left:0}
+.map span{display:block;float:left}
+.map span.m-ending{color:#ccc;padding:0 6px 0 8px}
+.map a:hover{color:#f60}
+
+@charset "utf-8";
+/* CSS Document */
+.i-headlines dt , .i-headlines-game dt,a.harvest-publish{font-family:"微软雅黑","microsoft yahei",verdana,lucida,arial,sans-serif,"黑体";_font-weight:bold}
+.index-skills,.index-hot,.index-video,.index-pic,.index-haidiao,.index-bbs{width:1000px;overflow:hidden}
+
+.index-channel-content{overflow:hidden}
+/*
+.index-hot{_height:586px}
+.index-game{_height:715px}
+.index-game-nohead{_height:646px}
+*/
+.index-main-left , .index-main-center , .index-main-right{float:left;overflow:hidden;margin-right:20px}
+.index-main-left{width:350px;overflow:hidden}
+.index-main-center{width:380px}
+.index-main-right{width:230px;margin-right:0}
+
+/*钓鱼热门推荐 -开始*/
+.i-h-ppt{width:350px;height:250px;overflow:hidden;text-align:center;}
+.i-h-ppt li{float:left}
+.i-h-ppt .img{width:800%;height:230px;border-bottom:2px solid #f90;}
+.i-h-ppt .img img{width:350px;height:230px;}
+.i-h-ppt .img span{display:block;height:30px;width:350px;overflow:hidden;line-height:30px;background:#2b2b2b;font-size:14px;font-weight:bold;margin-top:-30px;cursor:pointer;filter:alpha(opacity=80);-moz-opacity:0.8;opacity:0.8;}
+.i-h-ppt .img a{color:#fff;text-decoration:none}
+.i-h-ppt .img a:hover{color:#fff;text-decoration:underline}
+.i-h-ppt .tab{width:100%;height:18px;overflow:hidden}
+.i-h-ppt .tab li{float:left;width:42px;margin-right:2px;background:#e8e8e8;color:#000;line-height:18px;cursor:pointer;font-family:arial,"宋体";}
+.i-h-ppt .tab li.end{margin-right:0;}
+.i-h-ppt .tab li.hover{background:#ff9900;color:#fff;}
+
+.i-hot-bbs{width:350px;margin-top:4px;overflow:hidden}
+.i-hot-bbs dt{position:relative;height:44px;line-height:44px;overflow:hidden}
+.i-hot-bbs dt .title{font-size:16px;float:left;font-weight:bold;color:#666}
+.i-hot-bbs dt a.title:hover{color:#f60}
+.i-hot-bbs dt .title i{display:block;width:34px;height:13px;position:absolute;top:15px;left:73px;background:url(../img/diaoyu123_common_icon.png) -131px 0 no-repeat;}
+.i-hot-bbs-list{height:96px;overflow:hidden}
+.i-hot-bbs-list a{display:block;float:left;font-size:14px;width:190px;height:20px;line-height:20px;margin-bottom:6px;padding-left:10px;background:url(../img/diaoyu123_common_icon.24.png) -31px 9px no-repeat;_background:url(../img/diaoyu123_common_icon.24.ie6.png) -31px 9px no-repeat;overflow:hidden}
+.i-hot-bbs-list .img,.i-hot-bbs-list .img img{width:135px;height:96px;margin-bottom:0}
+.i-hot-bbs-list .img{margin-right:12px;background:none;padding:0}
+.i-hot-bbs-list .img span{display:block;width:100%;height:26px;line-height:26px;position:relative;color:#fff;margin-top:-26px;text-align:center;overflow:hidden}
+.i-hot-bbs-list .img:hover span{color:#f60}
+.i-hot-bbs-recomment{width:310px;height:30px;line-height:30px;margin:14px 0;padding:0 10px 0 30px;background:url(../img/diaoyu123_common_icon.png) #f4f4f4 -174px -113px no-repeat;}
+.i-hot-bbs-recomment span{float:left}
+.i-hot-bbs-recomment .more{color:#0cba62;padding-top:0}
+.i-hot-bbs-recomment .more:hover{color:#f60}
+.i-hot-bbs-recomment b{color:#e44}
+
+.i-headlines{overflow:hidden;padding-bottom:5px;width:400px}
+.i-headlines-line{border-bottom:1px solid #f1f1f1;margin-bottom:5px}
+.i-headlines dt{width:380px;height:30px;line-height:30px;font-size:20px;font-weight:bold;text-align:center;margin-bottom:3px;overflow:hidden}
+.i-headlines dd{float:left;width:170px;height:28px;line-height:28px;font-size:14px;overflow:hidden;padding-left:10px;margin-right:20px;background:url(../img/diaoyu123_common_icon.24.png) -31px 12px no-repeat;_background:url(../img/diaoyu123_common_icon.24.ie6.png) -31px 12px no-repeat}
+
+.i-channel-live{width:300px;height:28px;padding-left:80px;line-height:28px;background:url(../img/diaoyu123_common_icon.png) #464646 -152px -212px no-repeat}
+.i-channel-live a{display:block;float:left;height:28px;width:80px;margin-right:40px;padding-left:30px;color:#d5d5d5;background:url(../img/diaoyu123_common_icon.png) -173px -243px no-repeat}
+.i-channel-live a.kuaile{background-position:-173px -271px;margin-right:0;}
+.i-channel-live a:hover{color:#f60}
+
+.i-headlines-graphic{margin-top:12px;height:125px;overflow:hidden}
+.i-headlines-graphic .img{margin-top:0}
+.i-headlines-graphic a{width:162px;padding-left:20px;background:url(../img/diaoyu123_common_icon.png) -186px 4px no-repeat;}
+.i-headlines-graphic a.pic{background-position:-186px -26px}
+.i-headlines-graphic .img,.i-headlines-graphic .img img{width:180px;height:125px}
+.i-headlines-graphic .img span{height:30px;line-height:30px;margin-top:-30px}
+.i-headlines-graphic .img i{display:block;width:35px;height:35px;position:relative;margin:-85px 0 0 75px;cursor:pointer;background:url(../img/diaoyu123_common_icon.24.png) 0 -32px no-repeat;_background:url(../img/diaoyu123_common_icon.24.ie6.png) 0 -32px no-repeat}
+.i-headlines-graphic a:hover{color:#f60}
+
+.index-game-nohead .i-headlines-graphic{margin-top:14px}
+/*钓鱼热门推荐 -结束*/
+
+/*钓鱼技巧 -开始*/
+.c-c-nav dt{height:44px;line-height:44px;overflow:hidden}
+.c-c-nav dt .c-c-title .title{float:left;width:90px;font-weight:bold;font-size:16px;color:#666;overflow:hidden}
+.c-c-nav dt .c-c-title a:hover{color:#f60}
+.c-c-nav dt ul{float:right;width:249px;height:44px;margin-right:-10px;overflow:hidden}
+.c-c-nav dt ul li{float:right;color:#dadada}
+.c-c-nav dt ul a{color:#999;padding:0 10px}
+.c-c-nav dt ul a.more{color:#259;float:none}
+.c-c-nav dt ul a:hover{color:#f60}
+
+.i-c-nav dt{height:43px;line-height:44px;overflow:hidden}
+.i-c-nav dt .more{line-height:48px}
+.i-c-nav dt .c-c-title a{width:80px;}
+.i-c-nav dt ul{width:280px;height:44px;overflow:hidden}
+
+.i-c-nav dd{width:380px;height:26px;line-height:26px}
+.i-c-nav dd span{float:right;width:40px;height:100%;color:#999;text-align:right;overflow:hidden}
+.i-c-nav dd .i-c-class{float:left}
+.i-c-nav dd .i-c-class a{width:34px;font-size:14px;color:#999;text-align:left;float:left}
+.i-c-nav dd .i-c-class a:hover{color:#f60}
+.i-c-nav dd .i-c-title{float:left;width:270px;height:100%;font-size:14px;padding:0 10px;overflow:hidden}
+
+.r-c-content{overflow:hidden}
+.r-c-content dt{height:30px;line-height:44px;overflow:hidden}
+.r-c-content dt .more{line-height:48px}
+.r-c-title .title{float:left;font-size:16px;color:#666;font-weight:bold}
+.r-c-content dt a:hover{color:#f60}
+.r-c-img{width:230px;margin:14px 0 8px 0}
+.r-c-img img{width:230px;height:160px}
+.r-c-img span{display:block;width:230px;height:34px;line-height:34px;margin-top:-34px;position:relative;text-align:center;color:#fff}
+.r-c-img i{display:none;width:35px;height:35px;position:relative;margin:-63px 0 0 38px;cursor:pointer;background:url(../img/diaoyu123_common_icon.24.png) 0 -32px no-repeat;_background:url(../img/diaoyu123_common_icon.24.ie6.png) 0 -32px no-repeat}
+
+.r-c-text{background:#f4f4f4;padding:2px 0}
+.r-c-text a{width:220px;padding-right:10px;height:23px;line-height:24px;text-indent:20px;background:url(../img/diaoyu123_common_icon.24.png) -19px 10px no-repeat;_background:url(../img/diaoyu123_common_icon.24.ie6.png) -21px 10px no-repeat;overflow:hidden;display:block}
+.r-c-img a:hover span,.r-c-text a:hover{color:#f60}
+
+.r-c-pics dt{width:100%;height:44px;line-height:44px;padding-top:4px}
+.r-c-pics dd{height:122px;width:228px;background:#eee;padding:0 0 1px 1px}
+.r-c-pics dd a{height:60px;width:75px;margin:1px 1px 0 0;float:left;overflow:hidden}
+.r-c-pics dd a img{height:60px;width:75px}
+
+.r-h-img{width:240px;margin:0;overflow:hidden}
+.r-h-img a{float:left;width:110px;height:73px;margin:14px 10px 0 0}
+.r-h-img img{width:110px;height:73px}
+.r-h-img span{width:110px;height:26px;line-height:26px;margin-top:-26px;position:relative;text-align:center;color:#fff;overflow:hidden}
+.r-c-margin{margin-top:1px}
+
+.r-c-pics .chuidiao-bg{width:230px;height:120px;overflow:hidden; background:url(../img/diaoyu123_live_bg.png) no-repeat}
+.r-c-pics .chuidiao-bg a{line-height:60px;text-indent:999px;overflow:hidden;}
+.r-c-pics .rebo-bg{width:230px;height:283px;overflow:hidden;background:url(../img/diaoyu123_live_bg.png) 0 -207px no-repeat}
+.r-c-pics .rebo-bg a{line-height:60px;text-indent:999px;overflow:hidden;}
+
+/*钓鱼技巧 -结束*/
+
+/*钓鱼视频 -开始*/
+.i-video-list{float:left;width:770px;overflow:hidden}
+.i-video-list li{float:left;width:178px;height:128px;margin-right:14px;margin-top:14px}
+.i-video-list li img{width:178px;height:128px}
+.i-video-list li span{display:block;width:100%;height:26px;position:relative;color:#fff;margin-top:-26px;text-align:center;line-height:26px;overflow:hidden}
+.i-video-list li i{display:none;width:35px;height:35px;position:relative;margin:-85px 0 0 75px;cursor:pointer;background:url(../img/diaoyu123_common_icon.24.png) 0 -32px no-repeat;_background:url(../img/diaoyu123_common_icon.24.ie6.png) 0 -32px no-repeat}
+.i-video-list li a:hover span{color:#f60}
+.i-video-right{width:230px;float:right;overflow:hidden}
+.i-video-right .r-c-pics dd a{height:70px;}
+.i-video-right .r-c-pics dd a img{height:70px}
+
+.i-video-right .i-video-live{width:232px;margin-top:14px;background:url(../img/diaoyu123_live_bg.png) 0 -123px no-repeat;overflow:hidden}
+.i-video-right .i-video-live li{float:left;width:114px;height:80px;overflow:hidden;margin-right:2px}
+.i-video-right .i-video-live li a{display:block;width:100%;height:100%;line-height:134px;text-align:center;color:#d5d5d5}
+/*钓鱼视频 -开始*/
+
+/*渔具·比赛 -开始*/
+.i-g-ppt{width:350px;height:230px;margin-right:10px;overflow:hidden; position:relative}
+.i-g-ppt .tab{width:70px;height:9px;position:absolute;bottom:9px;right:5px}
+.i-g-ppt .tab span{display:block;float:left;width:9px;height:9px;background:#fff;margin-right:5px;border-radius:50%;cursor:pointer}
+.i-g-ppt .tab span.hover{background:#f90;}
+.i-g-ppt .tab-view{height:230px;width:1750px}
+.i-g-ppt .tab-view li ,.i-g-ppt .tab-view li img{float:left;width:350px;height:230px}
+.i-g-ppt .overlay-bg{width:350px;padding:0;height:28px;background:#000;filter:alpha(opacity=60);-moz-opacity:0.6;opacity:0.6;z-index:1;position:absolute;bottom:0;left:0}
+.i-g-ppt .overlay{width:350px;padding:0;height:28px;overflow:hidden;position:absolute;bottom:0;left:0;z-index:2;}
+.i-g-ppt .overlay ul{width:220px;position:absolute;bottom:0;left:0;z-index:6;overflow:hidden}
+.i-g-ppt .overlay li{display:none;height:28px;line-height:28px;font-size:14px;font-weight:bold;text-indent:15px;color:#fff;overflow:hidden}
+.i-g-ppt .overlay li a{height:28px;line-height:28px;color:#fff;overflow:hidden}
+
+.index-game .index-channel-title{margin:23px 0 14px 0}
+
+.i-game-figure dt{margin-top:18px;height:16px;line-height:16px;}
+.i-game-figure dt .title{float:left;font-size:16px;color:#666;font-weight:bold}
+.i-game-figure dt .title:hover{color:#f60}
+.i-game-figure dd{margin-top:14px}
+.i-game-figure .c-c-pic{height:70px;overflow:hidden}
+.i-game-figure .c-c-pic .text{height:46px}
+.i-game-figure .c-c-text{padding-top:0}
+.i-game-figure .c-c-pic .img{height:70px;width:100px;margin-right:15px}
+.i-game-figure .c-c-pic .img img{height:70px;width:100px}
+
+.i-headlines-game{padding-bottom:9px;}
+.i-headlines-game dt{width:380px;height:30px;line-height:30px;font-size:20px;text-align:center;margin-bottom:4px;overflow:hidden}
+.i-headlines-game p{color:#999;height:40px;line-height:20px;overflow:hidden}
+
+.r-c-content-game .r-c-img{height:207px;margin-bottom:5px}
+.r-c-content-game dt{margin-top:4px}
+.r-c-content-game .r-c-img a{display:block;width:230px;height:60px;margin-bottom:9px}
+.r-c-content-game .r-c-img img{width:230px;height:60px;}
+.r-c-content-game .r-c-text{padding:5px 0}
+/*渔具·比赛 -开始*/
+
+/*钓鱼论坛 -开始*/
+.index-bbs .index-channel-title{margin-bottom:14px}
+.index-bbs-headlines , .index-bbs-region{overflow:hidden}
+
+.i-bbs-ppt-recomment{width:350px;height:230px;overflow:hidden}
+.i-bbs-ppt-recomment a{display:block;width:100%;height:100%;}
+.i-bbs-ppt-recomment img{width:350px;height:230px;}
+.i-bbs-ppt-recomment span{display:block;text-align:center;color:#fff;font-size:14px;position:relative;height:30px;line-height:30px;margin-top:-30px;}
+
+.i-hot-bbs dd ul{margin-top:-10px}
+.i-hot-bbs dd li{height:26px;line-height:26px}
+
+.i-c-nav-bbs dd .i-c-class{width:70px;}
+.i-c-nav-bbs dd .i-c-class a{width:60px;}
+.i-c-nav-bbs dd .i-c-title{width:250px;_width:244px}
+
+.i-hot-vip{margin-top:-10px;overflow:hidden}
+.i-hot-vip dd a{width:70px;height:96px;margin-bottom:-4px}
+.i-hot-vip dd img{width:70px;height:70px;}
+.i-hot-vip dd span{display:block;width:100%;height:24px;line-height:24px;margin-top:0;color:#2670d3}
+.i-hot-vip dd a:hover span{color:#f60}
+
+.i-bbs-region-tags dt{height:40px;line-height:40px;margin-top:6px;overflow:hidden}
+.i-bbs-region-tags dd{width:230px;overflow:hidden}
+.i-bbs-region-tags dd a{float:left;display:block;width:56px;_width:55px;height:30px;line-height:30px;text-align:center;background:#f3f3f3;border-right:1px solid #fff;border-bottom:1px solid #fff;}
+
+.index-bbs-right{float:left;width:630px;overflow:hidden}
+.index-bbs-region-title{height:40px;line-height:40px;border-bottom:1px solid #ededed}
+.index-bbs-region-title .title{float:left;width:560px;font-size:20px}
+.index-bbs-region-title a{color:#2670d3;font-size:12px; font-family:'宋体'}
+.index-bbs-region-title a:hover{color:#f60}
+/*钓鱼论坛 -结束*/
+
+.links{width:1000px;margin:20px auto 0;border-top:1px solid #f3f3f3;padding-top:10px;overflow:hidden}
+.links dt{width:75px;height:26px;line-height:26px;float:left;font-weight:bold}
+.links dd{width:925px;float:left}
+.links dd a{display:inline-block;height:26px;line-height:26px;margin-right:20px;color:#666;}
+.links dd a:hover{color:#f60}
+.links dd span{color:#9e9e9e}
+
+/*渔获战报 -开始*/
+.harvest-publish{float:right;display:block;width:130px;height:30px;line-height:30px;text-align:center;color:#fff;font-size:16px;background:#e64849;padding-top:0}
+.harvest-publish:hover{color:#fff;}
+.index-harvest-left{float:left;width:750px;margin-right:20px;overflow:hidden}
+.index-harvest-left .tags{width:750px;margin-top:9px;overflow:hidden}
+.index-harvest-left .tags dt{float:left;margin-top:5px;width:60px;height:30px;line-height:30px;text-align:center;color:#666;font-weight:bold;background:url(../img/diaoyu123_common_icon.png) #e5e5e5 -140px -302px no-repeat;}
+.index-harvest-left .tags dd{float:left;width:305px;height:30px;line-height:30px;margin-top:5px;padding-left:10px;background:#f7f7f7;overflow:hidden}
+.index-harvest-left .tags a{float:left;margin-right:20px;}
+.index-harvest-left .tags .more{float:right;margin-right:5px;width:40px;height:30px;color:#444}
+.index-harvest-left .tags a.hover,.index-harvest-left .tags a:hover{color:#2670d3}
+.index-harvest-left .list li{height:140px;padding:14px 0;border-bottom:1px solid #e8e8e8}
+.index-harvest-left .left{float:left;width:200px;margin-right:20px}
+.index-harvest-left .left img{width:200px;height:140px}
+.index-harvest-left .list dl{float:left;width:375px;height:140px;margin-right:20px}
+.index-harvest-left .list dt{font-size:20px;height:30px;line-height:30px;overflow:hidden}
+.index-harvest-left .list dd{margin-top:5px;color:#999;line-height:20px;}
+.index-harvest-left .list .tags{margin-right:20px}
+.index-harvest-left .list a.tags{color:#2670d3}
+.index-harvest-left .list a:hover{color:#f60}
+
+.index-harvest-left .right{float:left;width:134px;height:140px}
+.index-harvest-left .h-username{width:100%;margin-top:30px;overflow:hidden}
+.index-harvest-left .h-username a , .index-harvest-left .h-username span{float:right;height:24px;line-height:24px;color:#259;padding-left:18px;background:url(../img/diaoyu123_common_icon.png) -183px -411px no-repeat}
+
+.index-harvest-left .h-user-level{width:100%;margin-top:5px;overflow:hidden}
+.index-harvest-left .h-user-level a , .index-harvest-left .h-user-level span{float:right}
+.index-harvest-right{float:left;width:230px;overflow:hidden}
+
+.harvest-list-more{display:block;width:100%;margin-top:14px;background:#f7f7f7;height:30px;line-height:30px;text-align:center}
+.harvest-r-list{margin-top:0;overflow:hidden}
+.harvest-r-list dt{height:34px}
+.harvest-r-list dd .img{width:110px;height:73px;float:left;margin-right:10px}
+.harvest-r-list dd img{width:110px;height:73px}
+.harvest-r-list .text{display:block;width:110px;_width:105px;color:#259;line-height:18px;height:40px;overflow:hidden}
+.harvest-r-list .text:hover{color:#f60}
+.harvest-r-list dd{margin-top:8px}
+.harvest-r-list dd span{display:block;color:#999;width:91px;_width:86px;height:18px;line-height:18px;padding-left:19px;overflow:hidden;background:url(../img/diaoyu123_common_icon.png) -185px -367px no-repeat;}
+.harvest-r-list dd .ding{background-position:-185px -386px}
+/*渔获战报 -结束*/
+
+
+/*渔具用品库 -开始*/
+.index-goods-list{overflow:hidden}
+.index-goods-list li{float:left;border-right:1px solid #e8e8e8;border-bottom:1px solid #e8e8e8;}
+.index-goods-list li a{display:block;width:100%;height:100%}
+.index-goods-list .goods_1{width:349px;height:471px;background:url(../img/goods/goods_1.png) no-repeat}
+.index-goods-list .goods_2{width:421px;height:235px;background:url(../img/goods/goods_2.png) no-repeat}
+.index-goods-list .goods_3{width:227px;height:235px;background:url(../img/goods/goods_3.png) no-repeat}
+.index-goods-list .goods_4{width:210px;height:235px;background:url(../img/goods/goods_4.png) no-repeat}
+.index-goods-list .goods_5{width:210px;height:235px;background:url(../img/goods/goods_5.png) no-repeat}
+.index-goods-list .goods_6{width:227px;height:235px;background:url(../img/goods/goods_6.png) no-repeat}
+.index-goods-list .goods_7{width:349px;height:236px;border-bottom:none;background:url(../img/goods/goods_7.png) no-repeat}
+.index-goods-list .goods_8{width:210px;height:235px;background:url(../img/goods/goods_8.png) no-repeat}
+.index-goods-list .goods_9{width:210px;height:235px;background:url(../img/goods/goods_9.png) no-repeat}
+.index-goods-list .goods_10{width:227px;height:235px;background:url(../img/goods/goods_10.png) no-repeat}
+.goods-item-content{height:223px;border:6px solid #fff;-webkit-transition:border-color 0.5s;transition:border-color 0.5s; cursor:pointer}
+.goods-item-content:hover{border-color:#f4f4f4}
+/*渔具用品库 -结束*/
+
+@charset "utf-8";
+/* CSS Document */
+.content-list-nav a{font-family:"微软雅黑","microsoft yahei",verdana,lucida,arial,sans-serif,"黑体";_font-weight:bold}
+
+/*入门 开始*/
+.channel-content{width:1000px;overflow:hidden}
+.rumen-main{overflow:visible}
+.rumen-content-left{float:left;width:770px;overflow:visible}
+.rumen-content-right{float:left;width:230px;overflow:hidden}
+.rumen-class,.rumen-nav{width:770px;padding-bottom:1px;overflow:hidden}
+.rumen-nav{overflow:visible}
+.channel-class-nav{float:left;width:365px;height:250px;margin:0 20px 15px 0;overflow:hidden}
+.channel-class-nav dt{height:28px;line-height:28px;border-bottom:2px solid #f1f1f1;margin-bottom:10px}
+.channel-class-nav dt .channel-class-title{float:left;height:28px;line-height:28px;border-bottom:2px solid #259;margin-bottom:-2px;overflow:hidden}
+.channel-class-nav dt .channel-class-title .title{float:left;line-height:18px;_line-height:22px;font-size:18px;color:#25a}
+.channel-class-nav .c-c-pic .title,.channel-class-nav .c-c-pic .text{width:220px}
+
+.channel-class-nav .c-c-text{width:380px}
+.channel-class-nav .c-c-text li{float:left;width:160px;height:28px;line-height:28px;margin-right:30px}
+.channel-class-nav .c-c-text li a{width:100%}
+.rumen-class .channel-class-nav .c-c-text li a{background:none;text-indent:0}
+
+.rumen-nav-title{float:left;width:750px;height:44px;line-height:44px;font-size:24px;color:#259;text-indent:15px;background:#fafafa;border-top:2px solid #259;margin:10px 0}
+.class-lable-box{float:left;width:365px;_width:362px;height:132px;margin:0 20px 15px 0;_margin-right:15px}
+.class-lable{float:left;width:363px;_width:360px;height:132px;border:1px solid #fff;border-top:none;overflow:hidden}
+.class-lable dt{width:100%;height:38px;line-height:38px;margin-bottom:5px;font-size:18px;border-bottom:1px solid #ededed;border-top:none;text-indent:35px;background:url(../img/diaoyu123_common_icon.png) -172px -437px no-repeat}
+.class-lable dt a{line-height:38px}
+.class-lable dd{float:left;width:69px;height:26px;line-height:26px;padding-left:3px;overflow:hidden}
+.class-lable dd a{float:left;display:block;height:24px;line-height:24px;padding:0 6px;border:1px solid #fff;}
+.class-lable dd a:hover{background:#fff;color:#f60;border-color:#e5e5e5;border-radius:12px}
+
+.class-lable-box .hover{position:absolute;z-index:2;height:auto;background:#fafafa;border-color:#ededed;padding-bottom:5px;overflow:visible}
+.class-lable-box .hover dt{background-color:#fff;width:100%;_width:364px;_position:relative;height:38px;line-height:38px;border-left:1px solid #fff;border-right:1px solid #fff;margin:0 -1px 5px -1px}
+.class-lable-box .hover dd a{border-color:#fafafa}
+.class-lable-box .hover dd a:hover{border-color:#e5e5e5}
+
+.relate-info{width:200px;background:#fafafa;padding:13px 14px;border:1px solid #e5e5e5;display:block;overflow:hidden}
+.relate-info dt{height:20px;line-height:20px;font-size:18px;margin-bottom:13px;display:block}
+.relate-info dd img{float:left;height:53px;width:80px;margin:0 10px 5px 0;display:block}
+.relate-info dd p{line-height:20px}
+.relate-info dd p span{color:#259}
+.relate-info dd p a{color:#259;padding:0 5px}
+.relate-info dd p a:hover{color:#f60}
+.other-info{width:210px;margin-top:10px;display:block;overflow:hidden}
+.other-info a{float:left;width:58px;_width:53px;height:23px;line-height:23px;text-align:center;border:1px solid #e5e5e5;color:#259;background:#fff;margin-right:10px;display:block}
+.other-info a:hover{color:#f60}
+
+.common-lable{margin-top:20px;overflow:hidden}
+.common-lable dt{width:100%;height:39px;line-height:39px;background:#fbfbfb;color:#259;font-size:18px;text-indent:10px;border-top:2px solid #259}
+.common-lable dd{width:100%;background:#f3f3f3;padding:4px 0 7px 0;overflow:hidden}
+.common-lable dd a{float:left;width:32%;height:28px;line-height:28px;background:#f3f3f3;text-indent:13px;text-align:left;display:block}
+
+.mingren-lable{margin-top:10px;overflow:hidden}
+.mingren-lable dt{width:100%;height:28px;line-height:28px;font-size:18px}
+.mingren-lable dd{width:240px;overflow:hidden}
+.mingren-lable dd a{display:block;float:left;width:70px;height:96px;margin:10px 10px 0 0;_margin-right:6px;overflow:hidden}
+.mingren-lable dd img{width:70px;height:70px}
+.mingren-lable dd span{display:block;height:26px;line-height:26px;background:#f3f3f3;text-align:center;overflow:hidden}
+.mingren-lable dd a:hover{color:#f60}
+
+.organize-img{margin-top:20px;width:240px;}
+.organize-img dd a{border:1px solid #e5e5e5;padding:2px;width:64px;height:auto;color:#2670d3;text-align:center}
+.organize-img dd img{width:64px;height:53px}
+.organize-img dd span{height:36px;line-height:18px;padding:5px 3px 3px;background:#fff}
+/*入门 结束*/
+
+/*钓鱼技巧 结束*/
+.jiqiao-hot-content{width:100%;height:570px;overflow:hidden}
+.hot-content-left{float:left;width:300px;margin-right:20px;}
+.hot-content-center{float:left;width:358px;margin-right:22px;}
+.hot-content-right{float:left;width:300px;overflow:hidden}
+
+.jiqiao-h-ppt{width:300px;height:270px;overflow:hidden;text-align:center;margin-bottom:17px;}
+.jiqiao-h-ppt li{float:left}
+.jiqiao-h-ppt .img{width:700%;height:250px;border-bottom:2px solid #f90;}
+.jiqiao-h-ppt .img img{width:300px;height:250px;}
+.jiqiao-h-ppt .img span{display:block;height:30px;width:300px;overflow:hidden;line-height:30px;background:#2b2b2b;font-size:14px;font-weight:bold;margin-top:-30px;cursor:pointer;filter:alpha(opacity=80);-moz-opacity:0.8;opacity:0.8;}
+.jiqiao-h-ppt .img a{color:#fff;text-decoration:none}
+.jiqiao-h-ppt .img a:hover{color:#fff;text-decoration:underline}
+.jiqiao-h-ppt .tab{width:100%;height:18px;overflow:hidden;}
+.jiqiao-h-ppt .tab li{float:left;width:41px;margin-right:2px;background:#e8e8e8;color:#000;line-height:18px;cursor:pointer;font-family:arial,"宋体";}
+.jiqiao-h-ppt .tab li.end{margin-right:0;width:42px;}
+.jiqiao-h-ppt .tab li.hover{background:#f90;color:#fff}
+
+.hot-content-center dl{width:100%;overflow:hidden}
+.hot-content-center dl dt,.hot-content-center dl dd{display:block;width:358px;height:24px;line-height:24px;margin-bottom:3px;overflow:hidden}
+.hot-content-center dl dt{margin:9px 0 5px}
+.hot-content-center dl dt.h-c-notop{margin-top:0}
+.hot-content-center dl span{float:left;display:block;width:55px;height:24px;line-height:24px;font-size:14px;color:#c6c6c6;text-align:right}
+.hot-content-center dt span{padding-right:4px;background:url(../img/diaoyu123_common_icon.png) #ff9a00 54px -150px no-repeat}
+
+.hot-content-center dl span a{float:left;width:44px;line-height:24px;color:#7e7e7e;text-align:left}
+.hot-content-center dt span a{width:55px;text-align:center;color:#fff}
+.hot-content-center dd span a:hover{color:#f60}
+
+.hot-content-center .h-c-title{float:left;width:252px;height:24px;line-height:24px;font-size:14px;color:#555;padding-left:10px;display:block}
+.hot-content-center dt .h-c-title{width:270px;font-weight:bold}
+.hot-content-center .h-c-title:hover{color:#f60}
+
+.hot-content-center .h-c-class1,.hot-content-center .h-c-class2{background-color:#01a1ec;background-position:54px -202px}
+.hot-content-center .h-c-class3,.hot-content-center .h-c-class4{background-color:#85b760;background-position:54px -176px}
+.hot-content-center .h-c-class5{background-color:#ff9a00;background-position:54px -150px}
+
+.jiqiao-class-list{width:1000px;overflow:hidden}
+.jiqiao-class-list .index-channel-title{float:left;width:100%;overflow:hidden}
+
+.class-tab{float:left;width:328px;margin:14px 22px 0 0;overflow:hidden}
+.class-tab dt{width:327px;height:33px;border-bottom:1px solid #e1e1e1;border-left:1px solid #e1e1e1;margin-bottom:14px;display:block}
+.class-tab dt a{_position:relative;_margin-bottom:-1px;float:left;display:block;height:32px;line-height:32px;padding:0 10px;font-size:14px;color:#666;text-align:center;border:1px solid #e2e2e2;background:#f7f7f7;border-left:none;overflow:hidden}
+.class-tab dt .hover{border-bottom:1px solid #fff;background:#fff;color:#259;font-weight:bold}
+.class-tab-simple dt .title ,.class-tab-img dt .title{font-size:16px;font-weight:bold;color:#666}
+.class-tab dt a.more{float:right;line-height:34px;padding:0;font-size:12px;color:#259;border:none;background:#fff;text-align:right}
+.class-tab dt a:hover{color:#f60}
+
+.class-tab dd{display:none}
+.class-tab dd.class_tab_1{display:block}
+.class-tab .c-c-pic .title{width:180px;height:52px;line-height:22px;font-size:13px;font-family:'宋体',Arial,Helvetica,sans-serif}
+.class-tab .c-c-pic .text{width:180px;height:36px;line-height:18px}
+.class-tab .c-c-text{padding-top:7px}
+.class-tab .c-c-text li,.class-tab .c-c-text li a{width:328px;height:28px;line-height:28px;overflow:hidden}
+
+.j-c-right{width:300px;margin-right:0}
+.j-c-right dt{width:299px}
+.j-c-right .c-c-pic .title,.j-c-right .c-c-pic .text{width:150px}
+.j-c-right .c-c-text li,.j-c-right .c-c-text li a{width:300px}
+
+.class-tab-simple dt{border-left:none}
+.class-tab-simple dt a{width:150px;font-size:18px;color:#333;text-align:left;border:none;padding-left:0;background:#fff}
+.class-tab-simple dt a.more{width:88px;font-size:12px;color:#259;border:none}
+.class-tab-simple dt a:hover{color:#f60}
+
+.class-tab-img{float:left;width:300px;overflow:hidden}
+.class-tab-img dt{width:100%;margin:16px 0 2px;height:20px;line-height:20px;font-size:18px;overflow:hidden}
+.class-tab-img dt .title{float:left;color:#666}
+.class-tab-img dt a.more{float:right;font-size:12px;line-height:24px}
+.class-tab-img dd{width:320px;_width:350px;overflow:hidden}
+.class-tab-img dd a{float:left;width:140px;height:120px;margin:10px 20px 0 0;color:#555;display:block}
+.class-tab-img dd img{width:140px;height:100px}
+.class-tab-img dd span{height:20px;line-height:20px;text-align:center;display:block;overflow:hidden}
+.class-tab-img dd i{display:none;width:35px;height:35px;position:relative;margin:-88px 0 0 53px;cursor:pointer;background:url(../img/diaoyu123_common_icon.24.png) 0 -32px no-repeat;_background:url(../img/diaoyu123_common_icon.24.ie6.png) 0 -32px no-repeat}
+.class-tab-img a:hover{color:#f60}
+
+.hot-content-right .class-tab{width:300px;height:270px;margin:0 22px 0 0}
+.hot-content-right .class-tab dt{width:300px;height:20px;line-height:20px;margin-bottom:12px;border:none}
+.hot-content-right .class-tab dt a{height:20px;line-height:20px;padding:0}
+.hot-content-right .class-tab dt a.more{line-height:26px;}
+
+.hot-content-right .class-tab .c-c-pic .title,.hot-content-right .class-tab .c-c-pic .text{width:150px}
+.hot-content-right .class-tab .c-c-text{margin-top:14px;padding:6px 0 7px 0;background:#f4f4f4}
+.hot-content-right .class-tab .c-c-text li{width:290px;height:24px;line-height:24px;padding-left:10px}
+.hot-content-right .class-tab .c-c-text li a{width:280px;height:24px;line-height:24px;font-size:12px}
+
+/*钓鱼技巧 结束*/
+
+/* 列表 开始*/
+.content-list{float:left;width:678px;border:1px solid #e5e5e5;margin-right:20px;border-top:none;overflow:hidden}
+.content-list-nav{width:100%;height:48px;line-height:48px;background:#fafafa;border-bottom:1px solid #e5e5e5;border-top:1px solid #e5e5e5}
+.content-list-nav a{float:left;width:107px;line-height:48px;font-size:18px;color:#999;text-align:center;border-right:1px solid #e5e5e5;overflow:hidden}
+.content-list-nav a h1{font-size:18px}
+.content-list-nav a.hover{height:46px;line-height:46px;_position:relative;_margin-top:-3px;_margin-bottom:-1px;border-bottom:1px solid #fff;border-top:3px solid #259;background:#fff;color:#333;margin-top:-1px}
+.content-list-nav a.more{float:right;width:100px;height:30px;line-height:30px;text-align:center;font-size:14px;margin:9px 10px 0 0;background:#e64849;color:#fff}
+.content-list-nav a.last{border-right:none}
+.content-list-nav a:hover{color:#f60}
+
+.content-list ul{width:100%;overflow:hidden}
+.content-list li{width:650px;max-height:140px;border-bottom:1px dashed #e5e5e5;padding:14px 0;margin:0 14px;overflow:hidden}
+.content-list li .img{float:left;width:200px;height:140px;margin-right:20px}
+.content-list li .img a,.content-list li .img img{width:200px;height:140px}
+.content-list li .img i{display:none;width:35px;height:35px;position:relative;margin:-86px 0 0 82px;cursor:pointer;background:url(../img/diaoyu123_common_icon.24.png) 0 -32px no-repeat;_background:url(../img/diaoyu123_common_icon.24.ie6.png) 0 -32px no-repeat}
+
+.content-list li dt{font-family:"微软雅黑","microsoft yahei",verdana,lucida,arial,sans-serif,"黑体";height:36px;line-height:36px;font-size:20px;overflow:hidden}
+.content-list li dd{line-height:24px;color:#999;margin-bottom:5px;max-height:72px;overflow:hidden}
+.content-list li dd .attach-class,.content-list li dd .attach-user{line-height:24px;color:#666;margin-right:15px;display:inline-block}
+.content-list li dd .attach-class-hover{line-height:24px;color:#256ccc;margin-right:15px;display:inline-block}
+.content-list li dd .attach-user{padding-left:20px;background:url(../img/diaoyu123_common_icon.png) -183px -411px no-repeat;}
+.content-list li dd a:hover{color:#f60}
+
+.list-right{float:left;width:300px;overflow:hidden}
+.list-right .class-tab-img{float:none;padding-top:1px}
+.list-right .class-tab-img dt{margin-top:9px}
+/* 列表 结束*/
+
+/* 入门详情 开始*/
+.view-left{width:680px;margin-left:auto; margin-right:auto;overflow:hidden}
+.view-content{width:645px;border:1px solid #e5e5e5;border-top:3px solid #dcdcdc;padding:20px 18px 25px 15px;overflow:hidden}
+.ask-input{width:645px;border:1px solid #e5e5e5;padding:7px 14px 19px 19px;margin-top:20px;background:#fcfcfc;overflow:hidden}
+.view-right{float:left;width:300px;overflow:hidden}
+.view-right .class-tab-img{float:none}
+
+.view-content .img{float:right;width:300px;height:250px;padding:3px 3px 15px 25px;margin-bottom:10px;background:url(../img/rumen_view.png) 22px 0 no-repeat}
+.view-content .img img{width:300px;height:250px}
+.view-content .img span{float:right;display:block;width:45px;height:26px;line-height:26px;margin-top:-26px;*margin-right:-45px;position:relative;text-align:center;color:#fff}
+.view-content .img span.opacity-bg{*margin-right:0;}
+
+.view-content .title h1{_font-weight:bold;font-size:30px;line-height:40px;display:block}
+.view-content .title span{line-height:24px;font-style:normal;font-family:Arial, Helvetica, sans-serif;_font-weight:normal;display:block}
+.view-content .article p{line-height:24px;font-size:14px;text-indent:28px;margin-bottom:12px;display:block}
+.view-content .article h2{width:100%;_font-weight:bold;line-height:38px;font-size:18px;margin:12px 0;border-bottom:1px solid #d9d8d6;font-family:"微软雅黑","microsoft yahei",verdana,lucida,arial,sans-serif,"黑体";overflow:hidden}
+.view-content .article b{font-weight:bold;font-size:14px;line-height:24px;display:block}
+
+.operation-share{width:100%;overflow:hidden}
+.operation{float:left;width:150px;margin-top:10px;overflow:hidden}
+.operation a{float:left;width:30px;height:30px;line-height:30px;border:1px solid #f0f0f0;background:url(../img/diaoyu123_common_icon.24.png) -8px -84px no-repeat;_background:url(../img/diaoyu123_common_icon.24.ie6.png) -8px -84px no-repeat;background-color:#fafafa;border-radius:2px;margin-right:5px;display:block}
+.operation i{float:left;width:auto;height:32px;line-height:32px;font-style:normal;text-indent:13px;padding-right:5px;border-right:1px solid #f0f0f0;border-radius:3px;background:url(../img/diaoyu123_common_icon.png) -119px -559px no-repeat;display:block}
+.operation-share .share{float:right;width:150px;height:30px;line-height:30px;margin-top:10px}
+.operation-share .live-share{float:left}
+.operation-share .share a{float:left;width:24px;height:30px;padding-left:0;margin-right:6px;display:block}
+
+#share_weixin_box{width:220px;height:280px;padding:10px;position:absolute;z-index:100;background:#fff;border:1px solid #dedede}
+.share_weixin_title{height:20px;line-height:20px;width:100%;font-weight:bold;overflow:hidden}
+.share_weixin_title span{float:left;}
+.share_weixin_title a{float:right;font-size:16px}
+.share_weixin_qrcode{width:200px;height:200px;padding:10px 0;}
+.share_weixin_desc{height:40px;line-height:20px;color:#666;overflow:hidden}
+
+.related-content{width:655px;margin-bottom:10px;overflow:hidden}
+.related-content dl{float:left;width:280px;height:125px;margin:0 10px 10px 0;overflow:hidden}
+.related-content dl dt{line-height:36px;font-size:16px;font-weight:bold;border-bottom:1px solid #e6e6e6;margin-bottom:4px}
+.related-content .related-content-text dd{width:100%;height:28px;line-height:28px;text-indent:12px;overflow:hidden;*height:26px;*line-height:26px}
+.related-content .related-content-text dd a{font-size:14px;line-height:28px;background:url(../img/diaoyu123_common_icon.24.png) -37px -242px no-repeat;_background:url(../img/diaoyu123_common_icon.24.ie6.png) -37px -242px no-repeat;float:left}
+
+.related-content .related-content-pic{width:350px}
+.related-content .related-content-pic dt{border-bottom:none;margin-bottom:12px}
+.related-content .related-content-pic dd{width:360px;display:block;overflow:hidden}
+.related-content .related-content-pic dd a{float:left;width:110px;height:73px;margin-right:10px;display:block}
+.related-content .related-content-pic dd img{width:110px;height:73px}
+.related-content .related-content-pic dd span{display:block;width:100%;height:26px;line-height:26px;font-size:12px;margin-top:-26px;position:relative;text-align:center;color:#fff;overflow:hidden}
+
+.ask-input div.title{width:100%;height:38px;line-height:38px;font-size:18px;color:#252525;overflow:hidden}
+.ask-input div.title span{line-height:38px;float:right;text-align:right;font-size:12px;color:#999;_margin-top:-38px;_font-weight:normal}
+
+.ask-input form{width:100%}
+.ask-input form .ask-content,.ask-input form .ask-qq{font-size:14px;color:#666;padding:10px;border:1px solid #dfdfdf;box-shadow:1px 1px 0 #ededed inset,2px 2px 0 #f9f9f9 inset}
+.ask-input form .ask-content{width:623px;height:58px;line-height:22px;margin-bottom:10px}
+.ask-input form .ask-qq{float:left;height:28px;line-height:28px}
+.ask-input form .ask-submit{float:right;width:120px;height:50px;line-height:50px;border:none;text-align:center;font-family:"微软雅黑","microsoft yahei",verdana,lucida,arial,sans-serif,"黑体";text-shadow:0 2px 1px #39598d;font-size:20px;color:#fff;background:#4871b2;cursor:pointer}
+
+.comment-js-dd dd{padding:0 0 0 30px}
+.comment-js-dd dd a{width:100%;height:20px;line-height:20px;margin-bottom:10px}
+/* 入门详情 结束*/
+
+/* 技巧列表  开始*/
+.class-nav-bar{width:998px;border:1px solid #e7e7e7;border-top:3px solid #259;margin-bottom:15px;overflow:hidden}
+.class-nav-bar dl{float:left;display:block;width:978px;line-height:32px;padding-left:20px;overflow:hidden}
+.class-nav-bar dl.odd{background:#f3f3f3}
+.class-nav-bar dl a{float:left;display:block;height:22px;line-height:22px;padding:0 8px;margin:5px 20px 5px 0;color:#333;word-break:keep-all;overflow:hidden}
+.class-nav-bar dl dt{float:left;width:90px;overflow:hidden}
+.class-nav-bar dl dt a{padding:0;margin-right:5px;font-weight:bold}
+.class-nav-bar dl dt span{float:left;display:block;height:22px;line-height:22px;margin:5px 5px 0;color:#333;font-weight:bold;overflow:hidden}
+.class-nav-bar dl dd{float:left;width:845px}
+
+.class-nav-bar-label dl dt{width:58px}
+.class-nav-bar-label dl dd{width:877px}
+
+.class-nav-bar dl.c-n-bar{width:479px}
+.class-nav-bar dl.c-n-bar dt{width:85px}
+.class-nav-bar dl.c-n-bar dd{height:32px;line-height:32px;width:394px;overflow:hidden}
+
+.class-nav-bar dl .more{float:right;position:relative;color:#2670d3;padding:0 10px;margin-right:-43px;background:url(../img/diaoyu123_common_icon.24.png) 0 -150px no-repeat;_background:url(../img/diaoyu123_common_icon.24.ie6.png) 0 -152px no-repeat;cursor:pointer}
+.class-nav-bar dl .more-up{background-position:0 -115px;_background-position:0 -117px}
+.class-nav-bar dl.hover dt a,.class-nav-bar dl.hover dt span{color:#377ddb}
+.class-nav-bar dl dd a.hover,.class-nav-bar dl dd a:hover{background-color:#259;color:#fff}
+.class-nav-bar dl dd a.more:hover{background-color:transparent;color:#2670d3}
+
+.content-list-tutor{width:680px;border:none}
+.content-list-tutor ul li{width:100%;margin-left:0;margin-right:0}
+
+.content-list .channel-class-nav{width:646px;height:120px;border:1px solid #f0f0f0;margin:0;padding:13px 15px 20px;background:#fcfcfc;overflow:hidden}
+.content-list .channel-class-nav dt{border-bottom:none;margin-bottom:9px}
+.content-list .channel-class-nav dt .title{color:#444}
+.content-list .channel-class-nav dt a:hover{color:#f60}
+.content-list .channel-class-nav dt .channel-class-title{border-bottom:none}
+.channel-class-nav .c-c-pic{overflow:visible}
+.content-list .c-c-pic{height:84px}
+.content-list .c-c-pic li{padding:0;border:none}
+.content-list .c-c-pic .img,.content-list .c-c-pic .img img{height:84px;width:120px}
+.content-list .c-c-pic .text{width:510px;text-indent:24px;color:#7b7b7b}
+.content-list .c-c-pic .share{width:510px;height:30px;line-height:30px;overflow:visible}
+.content-list .c-c-pic .share span{float:left;display:block}
+.share a{float:left;display:block;height:30px;line-height:30px;padding-left:24px;margin-right:5px;background:url(../img/diaoyu123_share_icon.png) no-repeat}
+.share .share_qzone_16{background-position:0 7px}
+.share .share_tsina_16{background-position:0 -23px}
+.share .share_sqq_16{background-position:0 -53px}
+.share .share_weixin_16{background-position:0 -83px}
+.share .share_copy_16{background-position:0 -113px}
+
+.share .share_qzone_24{background-position:0 -145px}
+.share .share_tsina_24{background-position:0 -179px}
+.share .share_sqq_24{background-position:0 -213px}
+.share .share_weixin_24{background-position:0 -247px}
+.share .share_copy_24{background-position:0 -281px}
+
+/* 技巧列表 结束*/
+
+/*钓鱼图片  -开始*/
+.pic-main{margin-top:0;}
+/*钓鱼图片  -结束*/
+
+/*钓鱼图片列表  -开始*/
+.pic-left{float:left;width:680px;margin-right:20px;overflow:hidden}
+.p-pic-list{width:720px;padding-top:0;margin-top:-14px}
+.p-pic-list li{width:200px;height:170px;margin:14px 40px 0 0}
+.p-pic-list li img{width:200px;height:140px}
+.pic-right{float:left;width:300px}
+/*钓鱼图片列表  -结束*/
+
+/*视频首页  -开始*/
+.video-list{clear:both;width:100%;height:416px;max-height:475px;overflow:hidden}
+.video-left{float:left;width:730px;margin-right:20px;overflow:hidden}
+.video-right{float:left;width:250px;overflow:hidden}
+
+.video-article-list{width:740px;height:auto;overflow:hidden}
+.video-article-list li{float:left;width:175px;height:165px;margin:14px 10px 0 0}
+.video-article-list li a{display:block;width:100%;height:142px;overflow:hidden}
+.video-article-list li a img{width:175px;height:120px}
+.video-article-list li a span,.video-article-list li a.video-from{display:block;width:100%;height:18px;line-height:18px;padding-top:4px;text-indent:10px;background:#f3f3f3;overflow:hidden}
+.video-article-list li a.video-from{padding:0 0 5px 0;white-space:nowrap;color:#999}
+.video-article-list li a:hover{color:#f60}
+.video-article-list li i{display:none;width:35px;height:35px;position:relative;margin:-100px 0 0 70px;cursor:pointer;background:url(../img/diaoyu123_common_icon.24.png) 0 -32px no-repeat;_background: url(../img/diaoyu123_common_icon.24.ie6.png) 0 -32px no-repeat}
+
+.video-main{margin-top:0}
+.video-head-box{width:100%;padding:20px 0;background-color:#2d2d2d}
+.video-head-list{width:1000px;height:475px;margin:0 auto}
+.video-head-list ul{width:752px;overflow:hidden}
+.video-head-list li{width:169px;height:147px;margin:0 18px 18px 0;overflow:hidden}
+.video-head-list li a{height:122px}
+.video-head-list li a img{width:169px;height:102px}
+.video-head-list li i{margin:-93px 0 0 63px}
+.video-head-list li.title{width:357px;height:310px;margin-right:18px}
+.video-head-list li.title a{height:310px;font-size:20px;color:#fff}
+.video-head-list li.title a img{width:360px;height:310px}
+.video-head-list li.title a span{position:relative;height:28px;line-height:28px;margin-top:-53px;text-indent:55px;padding:0;background:none}
+.video-head-list li.title a span.opacity-bg{height:60px;line-height:60px;margin-top:-60px;background:#000}
+.video-head-list li.title a.video-from{position:relative;height:22px;line-height:22px;padding:0;font-size:14px;text-indent:55px;margin-top:-26px;background:none;color:#f90}
+.video-head-list li.title a:hover{color:#f60}
+.video-head-list li.title i{display:block;height:43px;width:43px;margin:-26px 0 0 7px;background-position:0 -198px}
+
+
+.video-live-list{width:100%;overflow:hidden}
+.video-live-list li{width:100%;height:92px;margin-bottom:20px;overflow:hidden}
+.video-live-list li a{display:block;width:250px;height:92px;background:url(../img/live.png?20151030) 0 0 no-repeat}
+.video-live-list li.live a{background-position:0 -102px}
+
+.video-class-list{width:261px;overflow:hidden}
+.video-class-list li{width:76px;height:92px;margin:14px 11px 0 0;overflow:hidden}
+.video-class-list li a img{width:76px;height:70px}
+.video-class-list li a span{height:22px;line-height:32px;padding:0;text-indent:0;background:#fff;text-align:center}
+
+.video-class-notext li,.video-class-notext li a,.video-class-notext li a img{height:70px}
+
+.video-text-list{width:252px;margin:14px 0;overflow:hidden}
+.video-text-list li{float:left;background:#f3f3f3;margin:0 2px 1px 0}
+.video-text-list li,.video-text-list li a{width:82px;height:40px;line-height:40px;text-align:center}
+
+.video-right .click-rank{width:250px;margin-top:2px}
+.video-right .click-rank dd a{width:233px}
+/*视频首页  -结束*/
+
+/*视频直播 开始*/
+.live-box{width:1000px;height:590px;background:#111;margin-bottom:15px}
+.live-box dl.player{float:left;width:690px;height:580px;background:#2f2f2f;padding:0 10px 10px 0}
+.live-box dl.player dt{width:100%;height:56px;line-height:56px;}
+.live-box dl.player dt h1{float:left;background:url(../img/diaoyu123_common_icon.24.png) -12px -320px no-repeat;_background:url(../img/diaoyu123_common_icon.24.ie6.png) -173px -240px no-repeat;height:100%;text-indent:35px;color:#34b254;font-weight:bold;font-size:14px}
+.live-box dl.player dt h1.live-sihai{background-position:-12px -270px}
+
+.live-box dl.player dt ul{float:right;}
+.live-box dl.player dt ul li{float:left;margin-right:6px;}
+.live-box dl.player dt ul li a{color:#d5d5d5;}
+.live-box dl.player dt ul li a:hover{color:#f60}
+.live-box dl.player dd{background:#000;padding:0}
+
+.live-box .tvlist{float:left;width:297px;height:470px;background:#111;border-right:2px solid #191919;overflow:hidden}
+.live-box .tab{float:left;width:273px;height:28px;overflow:hidden;margin:15px 10px 13px 15px;background:#111;_margin-left:7px;}
+.live-box .tab span.title{float:left;width:80px;text-indent:5px;color:#bababa;font-weight:bold;font-size:14px;height:26px;line-height:26px;border:1px solid #444;border-left:0;border-top:0;}
+.live-box .tab span.tabs{float:left}
+.live-box .tab li{float:left;height:26px;line-height:26px;text-align:center;width:63px;border:1px solid #444;border-left:0;color:#8d8d8d;cursor:pointer;}
+.live-box .tab li.nohover{display:block;height:26px;line-height:26px;border-bottom:1px solid #444;color:#8d8d8d;}
+.live-box .tab li.hover{display:block;height:26px;line-height:26px;border-bottom:0;color:#bababa}
+.live-box .tab li.nodisplay{display:none}
+
+.tvlist dl.list{display:none;float:left;width:274px;height:414px;overflow-y:auto;overflow-x:hidden;margin:0 10px 15px 15px;_margin-left:7px;background:#111;scrollbar-arrow-color:#dbdcde;scrollbar-face-color:#909297;scrollbar-3dlight-color:#909297;scrollbar-highlight-color:#909297;scrollbar-shadow-color:#909297;scrollbar-darkshadow-color:#909297;scrollbar-track-color:#1b1c1e;scrollbar-base-color:#909297}
+.tvlist dl.list::-webkit-scrollbar{background-color:#1b1c1e;}
+.tvlist dl.list::-webkit-scrollbar-thumb{background-color:#84868c;}
+.tvlist dl.list::-webkit-scrollbar-button{background-color:#dbdcde;}
+.tvlist dl.list dt{width:100%;text-indent:5px;margin-bottom:6px;color:#444}
+.tvlist dl.list dd{width:100%;height:24px;line-height:24px;color:#444;text-indent:5px;overflow:hidden;}
+.tvlist dl.list .Highlight{color:#3cb34d;font-weight:bolder;}
+
+.weixin-show{float:left;width:297px;height:100px;margin-top:10px}
+.weixin-show img{display:block;width:274px;height:100px;margin:0 auto}
+
+.live-left{float:left;width:680px;margin-right:20px;overflow:hidden}
+.tutor{width:100%;background:#f1f1f1;margin-bottom:15px;overflow:hidden}
+.tutor dl{padding:5px 15px 15px 15px}
+.tutor dt{height:34px;line-height:34px;font-size:14px;color:#2f2f2f}
+.tutor dd p,.tutor dd{text-indent:24px;line-height:20px;color:#7b7b7b}
+.tutor dd a{color:#f60}
+.tutor dd a:hover{text-decoration:underline}
+
+.live-left .class-tab-img{width:100%;overflow:hidden;float:none}
+.live-left .class-tab-img dt{border-bottom:1px solid #ededed;margin:1px 0 0;padding-bottom:8px}
+.live-left .class-tab-img dd{width:708px}
+.live-left .class-tab-img dd a{width:150px;height:133px;margin:14px 27px 0 0;color:#333}
+.live-left .class-tab-img dd img{width:150px;height:103px}
+.live-left .class-tab-img dd span{height:30px;line-height:30px;background:#f3f3f3}
+.live-left .class-tab-img dd a:hover{color:#f60}
+
+.live-right{float:left;width:300px;overflow:hidden}
+.live-right .relate-info{width:278px;padding:13px 6px 13px 14px;background:#fcfcfc}
+.live-right .relate-info dt{margin-bottom:10px}
+.live-right .relate-info dd img{height:142px;width:109px;margin:0 10px 5px 0;border:1px solid #f2f2f2}
+.live-right .relate-info dd p{line-height:20px;text-indent:24px;color:#7b7b7b}
+/* 视频直播 结束*/
+
+/* 视频详情 开始*/
+.tv-box{height:640px}
+.tv-box .title{float:left;width:690px;height:580px;background:#2f2f2f;padding:0 10px 10px 0}
+.tv-box .title dt{width:100%;height:56px;line-height:56px;}
+.tv-box .title dt h1{font-size:20px;color:#d5d5d5;text-indent:12px}
+.tv-box .title dt h1 span{color:#ff9900}
+.tv-box .title dd{background:#000;margin-bottom:-3px}
+.tv-box .title dd embed,.tv-box .title dd iframe{display:block;margin:0 auto}
+
+.tv-box .operation-share{clear:left;width:680px;height:50px;padding:0 310px 0 10px;background:#2f2f2f}
+.tv-box .operation{margin-top:8px}
+.tv-box .operation a{border:none;background-color:#707070;}
+.tv-box .operation i{height:32px;line-height:32px;width:auto;border:0;border-radius:3px;background:url(../img/diaoyu123_common_icon.png) -190px -493px no-repeat;background-color:#707070;color:#ccc;padding-right:5px}
+
+.tv-list{float:left;width:297px;height:570px;background:#111;border-right:2px solid #191919;overflow:hidden}
+.tv-list span{height:28px;line-height:28px;border-bottom:1px solid #444;margin:14px 7px 10px 15px;color:#bababa;font-weight:bold;display:block}
+.tv-list ul.list{display:block;float:left;width:274px;height:448px;overflow-y:auto;overflow-x:hidden;margin:1px 5px 15px 15px;_margin-left:7px;background:#111;scrollbar-arrow-color:#dbdcde;scrollbar-face-color:#909297;scrollbar-3dlight-color:#909297;scrollbar-highlight-color:#909297;scrollbar-shadow-color:#909297;scrollbar-darkshadow-color:#909297;scrollbar-track-color:#1b1c1e;scrollbar-base-color:#909297}
+.tv-list ul.list::-webkit-scrollbar{background-color:#1b1c1e}
+.tv-list ul.list::-webkit-scrollbar-thumb{background-color:#84868c}
+.tv-list ul.list::-webkit-scrollbar-button{background-color:#dbdcde}
+.tv-list ul.list li{float:left;height:38px;line-height:38px;border:1px solid #535353;background:#2f2f2f;margin:0 5px 5px 0;padding:0 20px;display:block;overflow:hidden}
+.tv-list ul.list li a{color:#999}
+.tv-list ul.list li.hover,.tv-list ul.list li:hover{background:#535353;border:1px solid #ff9900}
+.tv-list ul.list li.hover a,.tv-list ul.list li:hover a{color:#ff9900}
+
+.tv-list ul.tv-list3 li{width:38px}
+.tv-list ul.tv-list2 li{width:81px}
+.tv-list ul.tv-list1 li{width:210px}
+
+.tv-list a.more{float:left;display:block;width:252px;height:40px;line-height:40px;text-align:center;background:#2f2f2f;color:#999;margin:10px 5px 5px 15px;_margin-left:7px;}
+.tv-list a.more:hover{color:#f60}
+
+.tutor ul{padding:6px 17px 4px 0;border-bottom:1px solid #d0d0d0;overflow:hidden}
+.tutor ul li{height:26px;line-height:26px}
+.tutor ul li span{line-height:26px;color:#999;padding-left:17px}
+.tutor ul li a{line-height:26px;color:#444;margin-right:13px}
+.tutor ul li a:hover{color:#f60}
+/* 视频详情 结束*/
+
+/* 视频二级列表 开始*/
+.class-nav-bar .on-live{color:#ff9900}
+
+.tv-view-list{width:680px;margin-bottom:20px;overflow:hidden}
+.tv-view-list .class-tab-img{float:none;width:720px}
+.tv-view-list .class-tab-img dt{border-bottom:1px solid #ededed;margin:0;padding:16px 0 8px}
+.tv-view-list .class-tab-img .title{margin:0}
+
+.tv-view-list .class-tab-img dd{float:left;width:200px;margin:14px 40px 0 0}
+.tv-view-list .class-tab-img dd a{float:none;width:200px;height:170px;margin-top:0;overflow:hidden}
+.tv-view-list .class-tab-img dd img{width:200px;height:140px}
+.tv-view-list .class-tab-img dd span{width:200px;background:#f3f3f3;height:30px;line-height:30px}
+.tv-view-list .class-tab-img dd i{margin:-117px 0 0 84px}
+
+.tv-view-list .new-view-list dd a{height:163px}
+.tv-view-list .new-view-list dd span{height:18px;line-height:18px;text-align:left;text-indent:15px;padding-top:5px}
+.tv-view-list .new-view-list dd a.tv-view-from{width:200px;height:18px;line-height:18px;margin:0;background:#f3f3f3;color:#999;text-indent:15px;padding:0 0 3px 0;overflow:hidden}
+.tv-view-list .new-view-list dd a.tv-view-from:hover{color:#f60}
+/* 视频二级列表 结束*/
+
+/* 视频三级列表 开始*/
+.content-list-tutor .c-c-n-noborder{border-bottom:none}
+.relate_view-list{width:646px;border:1px solid #f0f0f0;border-top:none;padding:22px 15px 20px;background:#fcfcfc;overflow:hidden}
+.relate_view-list dt{width:100%;height:34px;line-height:34px;font-size:18px;overflow:hidden}
+.relate_view-list dd{width:100%;height:auto;overflow:hidden}
+
+.relate_view-list dd.video-page a{float:left;display:block;width:98px;height:38px;line-height:38px;text-align:center;border:1px solid #dadada;margin:0 6px 6px 0;overflow:hidden}
+.relate_view-list dd.video-page a.hover,.relate_view-list dd.video-page a:hover{background:#00a0e9;border:1px solid #00a0e9;color:#fff}
+
+.relate_view-list dd.video-page-list a{position:relative;display:block;width:580px;height:38px;line-height:38px;border:1px solid #dadada;background:#f0f0f0;padding:0 42px 0 22px;margin-top:6px;color:#00a0e9;overflow:hidden}
+.relate_view-list dd.video-page-list a.hover,.relate_view-list dd.video-page-list a:hover{background:#fff}
+.relate_view-list dd.video-page-list a:hover i{background-position:0 -394px}
+.relate_view-list dd.video-page-list a span{color:#444}
+
+.relate_view-list dd.video-page-list a i{position:absolute;top:2px;right:14px;width:20px;height:30px;background:url(../img/diaoyu123_common_icon.png) 0 -431px no-repeat}
+.relate_view-list dd.video-page-list a.hover i{background-position:0 -394px}
+
+.relate_vlist1 dd.video-page-list a{width:580px}
+.relate_vlist2 dd.video-page-list a,.relate_vlist3 dd a{float:left;width:250px;margin-right:6px}
+.relate_vlist3 dd.video-page-list a{width:143px}
+
+.tv-near{width:100%;margin-bottom:20px;overflow:hidden}
+.tv-near .title{border-bottom:1px solid #ededed;height:38px;line-height:38px;margin-top:14px;font-size:18px;text-align:left}
+.tv-near ul .img i{display:none;width:35px;height:35px;position:relative;margin:-86px 0 0 82px;cursor:pointer;background:url(../img/diaoyu123_common_icon.24.png) 0 -32px no-repeat;_background:url(../img/diaoyu123_common_icon.24.ie6.png) 0 -32px no-repeat}
+.tv-near ul dl dt{margin-bottom:10px;font-family:"微软雅黑","microsoft yahei",verdana,lucida,arial,sans-serif,"黑体";font-weight:normal}
+.tv-near ul dl dd{padding-right:25px}
+/* 视频三级列表 结束*/
+
+.yuju-harvest{overflow:hidden;margin-top:20px}
+.yuju-harvest .content-list{margin-top:0}
+.yuju-harvest .content-list li{_height:105px}
+.yuju-harvest .content-list li .img, .yuju-harvest .content-list li .img img{width:150px;height:105px}
+.yuju-harvest .content-list li dt{height:24px;line-height:24px;margin-bottom:5px}
+.yuju-harvest .content-list li dd{max-height:42px}
+.yuju-harvest .content-list li dd span{color:#666}
+.yuju-harvest .content-list li dd .details{color:#259}
+.yuju-harvest-more{height:40px;padding:10px 0;}
+.yuju-harvest-more a{display:block;height:38px;width:230px;font-size:18px;text-align:center;margin:0 auto;line-height:38px;border:1px solid #d8d8d8;background:#eee;color:#414141}
+.yuju-harvest-more a:hover{color:#f60}
+.yuju-cooperation{margin-top:15px;height:620px;overflow:hidden}
+.yuju-cooperation dt{height:44px}
+.yuju-cooperation dd{margin-bottom:18px}
+.yuju-cooperation dd ,.yuju-cooperation dd img{width:230px;height:130px;}
+
+/*渔获首页  -结束*/
+.harvest-banner-box{width:100%;background:#2d2d2d;padding:15px 0 20px}
+.harvest-banner{width:1000px;height:361px;position:relative}
+.harvest-banner-btn-left , .harvest-banner-btn-right{display:block;position:absolute;top:133px;left:-70px;width:35px;height:34px;background:url(../img/diaoyu123_common_icon.png) -37px -396px no-repeat}
+.harvest-banner-btn-right{left:1030px;background-position:-72px -396px}
+.harvest-banner-btn-left:hover{background-position:-107px -396px}
+.harvest-banner-btn-right:hover{background-position:-142px -396px}
+.harvest-banner-wrap{overflow:hidden;position:relative;width:1000px;height:361px;}
+.harvest-banner-wrap .img{width:3003px;height:363px;}
+.harvest-banner-wrap li{float:left;height:100%;width:1001px;}
+.harvest-banner-wrap .left,.harvest-banner-wrap .center,.harvest-banner-wrap .right{float:left;width:364px;_width:363px;height:361px;}
+.harvest-banner-wrap .center{width:272px;margin-right:1px;}
+.harvest-banner-wrap .right{margin-rihgt:0}
+.harvest-banner-wrap a{display:block;float:left;margin-bottom:1px}
+.harvest-banner-wrap span{display:block;position:relative;width:100%;height:30px;line-height:30px;text-align:center;font-size:14px;color:#fff;margin-top:-30px;overflow:hidden}
+.harvest-banner-wrap .img_363_240,.harvest-banner-wrap .img_363_240 img{width:363px;height:240px;_width:361px;}
+.harvest-banner-wrap .img_181_120,.harvest-banner-wrap .img_181_120 img{width:181px;height:120px;margin-right:1px;_width:179px;}
+.harvest-banner-wrap .img_272_180,.harvest-banner-wrap .img_272_180 img{width:272px;height:180px}
+.harvest-banner-wrap a:hover span{color:#f60}
+
+.channel-harvest-left{margin-top:0}
+.channel-harvest-left .index-channel-title{margin-top:3px}
+.channel-harvest-left .page{padding-bottom:10px}
+
+.channel-harvest-left .class-nav-bar{width:748px}
+.channel-harvest-left .class-nav-bar dl{width:728px}
+
+.dynamic-list{margin-top:7px}
+.dynamic-listing{margin-top:0}
+.dynamic-list dt{height:16px;line-height:16px}
+.dynamic-list dd{padding:8px 0 3px 0;border-bottom:1px dashed #e5e5e5;overflow:hidden}
+.dynamic-list dd span{height:24px;line-height:24px;width:100%;color:#444;display:block;overflow:hidden}
+.dynamic-list dd a{line-height:24px;color:#999}
+.dynamic-list dd .text{height:24px;overflow:hidden}
+.dynamic-list dd span a{padding-right:8px;color:#259}
+.dynamic-list dd a:hover{color:#f60}
+
+.interactive-rank{margin:4px 0 0}
+.interactive-rank dt{height:44px}
+.interactive-rank dt a{color:#666;padding-top:0}
+.interactive-rank dt a:hover,.interactive-rank dt a.hover{color:#666;font-weight:bold}
+.interactive-rank dt i{font-style:normal;float:right;width:19px;text-align:center;color:#ccc}
+.interactive-rank dd{width:100%;display:none;margin-top:-10px}
+.interactive-rank dd.hover{display:block}
+.interactive-rank li{width:100%;overflow:hidden}
+.interactive-rank li .img{width:76px;height:70px;float:left;margin-right:13px}
+.interactive-rank li img{width:76px;height:70px}
+.interactive-rank li i{float:left;display:block;width:16px;height:14px;line-height:14px;text-align:center;background:#d4d4d4;font-style:normal;color:#fff;margin:7px 8px 0 0;overflow:hidden}
+.interactive-rank li .text{float:left;display:block;width:125px;color:#333;line-height:28px;height:28px;overflow:hidden}
+.interactive-rank li span{display:block;float:left;width:80px;_width:77px;height:28px;line-height:28px;color:#999;text-align:right;overflow:hidden}
+
+.interactive-rank li.top-pic{margin-top:10px}
+.interactive-rank li.top-pic i{float:none;background:#ef3f22;position:relative;margin:0;margin-bottom:-14px}
+.interactive-rank li.top-pic .text{color:#259}
+.interactive-rank li.top-pic .text:hover{color:#f60}
+.interactive-rank li.top-pic span{width:135px;height:20px;line-height:20px;text-align:left}
+
+.interactive-rank dd a:hover,.interactive-rank dd.top-pic a:hover{color:#f60}
+
+.index-harvest-right .class-tab-img{width:230px}
+.index-harvest-right .class-tab-img dt{border-bottom:none;margin:16px 0 12px}
+.index-harvest-right .class-tab-img dd{width:240px;_width:260px}
+.index-harvest-right .class-tab-img dd a{width:110px;height:99px;margin:0 10px 14px 0}
+.index-harvest-right .class-tab-img dd img{width:110px;height:73px}
+.index-harvest-right .class-tab-img dd span{height:26px;line-height:26px;background:#4c4c4c;color:#fff}
+.index-harvest-right .class-tab-img dd i{margin:-80px 0 0 38px}
+.channel-harvest-right .harvest-r-list .text{color:#444}
+.channel-harvest-right .harvest-r-list .text:hover{color:#f60}
+/*渔获首页  -结束*/
+
+/*渔获列表  -结束*/
+.harvest-left-tags,.harvest-left-tags .tags{width:1000px;overflow:hidden}
+.harvest-left-tags{margin-bottom:7px}
+.harvest-left-tags .tags dd{width:890px;height:auto;position:relative;padding-right:40px;background:#f7f7f7}
+.harvest-left-tags .tags .more{ position:absolute;right:0;top:0;}
+.harvest-left-tags .tags dd.short-tags{width:430px;padding:0 0 0 10px}
+/*渔获列表  -结束*/
+
+/*品牌详情页  -开始*/
+.product-intro{position:relative}
+.on-product-intro dt .title{height:35px;line-height:35px;width:90%;font-size:25px;_font-weight:bold;color:#333;overflow:hidden}
+.on-product-intro dd{height:300px;width:100%;font-size:14px;margin:9px 0 11px;overflow:hidden}
+.on-product-intro dd img{float:left;height:300px;width:300px;margin-right:20px}
+.on-product-intro dd p{float:left;line-height:30px;width:280px;padding-left:70px;text-indent:-70px;color:#444;display:block}
+.on-product-intro dd p a{color:#509bff}
+.on-product-intro dd p a:hover{color:#f60}
+
+.product-intro dt{height:38px;line-height:38px;font-size:18px;width:100%;border-bottom:1px solid #d9d8d6}
+.product-intro dt a{font-family:'宋体',Arial,Helvetica,sans-serif;display:block;position:absolute;top:7px;right:0;float:right;width:80px;height:24px;line-height:24px;font-size:12px;color:#fff;background-color:#f19149;text-align:center;border-radius:3px}
+.product-intro dd{padding:17px 0}
+.product-intro dd p,.product-intro dd{font-size:14px;text-indent:28px;color:#444;line-height:24px}
+
+.release-product{width:720px;overflow:hidden}
+.release-product dt.title{width:680px;height:38px;line-height:38px;font-size:18px;border-color:#d9d8d6}
+.release-product dd{height:182px;width:140px;margin:16px 40px 0 0}
+.release-product a img{height:140px;width:140px}
+
+.class-tab-noborder dt{border-bottom:none;padding-top:2px}
+.class-tab-noborder dd{margin-top:-10px}
+
+.yuju-evaluate{width:282px;border:1px solid #e5e5e5;padding:3px 8px 10px;margin:6px 0 15px}
+.yuju-evaluate dt{text-indent:6px}
+.yuju-evaluate dd a{width:277px;text-indent:17px;background:url(../img/diaoyu123_common_icon.24.png) -26px -130px no-repeat;_background:url(../img/diaoyu123_common_icon.24.ie6.png) -26px -130px no-repeat}
+
+dl.index-store{border:1px solid #e5e5e5;width:260px;padding:0 22px 6px 16px}
+dl.index-store dt {color:#555}
+dl.index-store dd{width:260px;height:80px;padding:0;border:none;margin-bottom:13px;}
+dl.index-store dd img{height:80px;width:80px;margin-right:10px}
+dl.index-store dd a{height:40px;line-height:20px;width:168px;font-size:14px;color:#555;margin:0;margin-top:3px;overflow:hidden}
+dl.index-store dd a:hover{color:#f60}
+dl.index-store dd span{color:#eb4643;font-size:14px;width:160px}
+dl.index-store dd span.title i{font-family:'宋体',Arial,Helvetica,sans-serif;font-style:normal;font-size:12px;color:#999}
+/*品牌详情页  -结束*/
+
+/*品牌列表  -开始*/
+.brand-pic-list{padding:0;margin-top:-15px}
+.brand-pic-list li{height:126px}
+.brand-pic-list li img{height:100px}
+.brand-pic-list li span{height:26px;line-height:26px}
+/*品牌列表  -结束*/
+
+/*渔具首页  -开始*/
+.channel-index-bbs{height:auto}
+.index-bbs-left{float:left;width:750px;height:635px;margin-right:20px;overflow:hidden}
+.index-bbs-left .index-main-left,.index-bbs-left .i-bbs-ppt-recomment,.index-bbs-left .i-bbs-ppt-recomment img{width:300px}
+.index-bbs-left .i-bbs-ppt-recomment{margin-bottom:4px}
+.index-bbs-left .index-main-left{margin-right:30px}
+.index-bbs-left .c-c-nav dt ul{width:200px}
+.index-bbs-left .c-c-pic .title,.index-bbs-left .c-c-pic .text{float:left;width:155px}
+.index-bbs-left .c-c-text li{width:300px}
+.index-bbs-left .c-c-text li a{width:300px;height:28px;line-height:28px;overflow:hidden}
+
+.index-bbs-left .index-main-center{width:420px;margin-right:0}
+.index-bbs-left .i-headlines-game{padding-bottom:1px;margin-top:-5px}
+.index-bbs-left .i-headlines-game dt{overflow:hidden}
+.index-bbs-left .i-headlines-game p{height:40px;overflow:hidden}
+.index-bbs-left .i-headlines{width:438px;margin:0;padding:0}
+.index-bbs-left .i-headlines dd{width:189px}
+.index-bbs-left .index-main-center .i-c-nav dt ul{width:340px}
+.index-bbs-left .index-main-center .i-c-nav dd{width:420px;background:url(../img/diaoyu123_common_icon.24.png) -31px 12px no-repeat;_background:url(../img/diaoyu123_common_icon.24.ie6.png) -31px 12px no-repeat}
+.index-bbs-left .index-main-center .i-c-nav dd a{width:370px;padding-right:0}
+
+/*渔具首页  -结束*/
+
+/*渔具店详情  -开始*/
+.shop-intro dd p{line-height:26px;font-size:16px;color:#666;margin-top:14px;padding-left:80px;text-indent:-80px}
+.shop-intro dd span{font-family:'宋体';padding-left:80px;font-size:12px;margin-top:6px;display:inline-block}
+.shop-intro dd span a{color:#509bff}
+.shop-intro dd span a:hover{color:#f60}
+.shop-intro dd p span{font-size:20px;color:#eb4643;font-weight:bold;display:inline;padding:0;margin-top:0}
+.shop-intro dd p i{font-family:'宋体';font-style:normal;font-size:12px;color:#999}
+
+.remark-on{border:none}
+.remark-on .title{font-size:18px;color:#252525;margin-top:10px}
+.remark-on dl{width:100%;overflow:hidden}
+.remark-on dd{border-bottom:1px solid #d9d8d6;padding:20px 0 10px 0;_width:100%;overflow:hidden;position:relative}
+.remark-on dd a{display:block;float:left;width:50px;color:#1c6dd8}
+.remark-on dd a:hover{color:#f60}
+.remark-on dd a img{height:50px;width:50px;margin-bottom:3px}
+.remark-on dd a span{line-height:20px}
+.remark-on dd div{width:615px;float:right;overflow:hidden}
+.remark-on dd div p{width:100%;line-height:24px;overflow:hidden}
+.remark-on dd div b{float:left;font-weight:bold;color:#333}
+.remark-on dd div span{float:left;display:block;width:190px;height:18px;line-height:18px}
+.remark-on dd p.deliver-time{color:#999;line-height:26px;}
+.remark-on dd a.remark-ding{float:none;position:absolute;right:0;bottom:14px;z-index:10;display:block;width:80px;height:24px;line-height:24px;border:1px solid #e3e3e3;padding-left:20px;color:#333;background:url(../img/diaoyu123_common_icon.24.png) #f5f5f5 -20px -170px no-repeat;_background:url(../img/diaoyu123_common_icon.24.ie6.png) #f5f5f5 -20px -170px no-repeat}
+.remark-on dd a.remark-ding:hover{color:#f60}
+.remark-on dd a.remark-ding i{font-style:normal;padding-left:3px;color:#999}
+
+.remark-submit dt.title{color:#252525;margin:0 0 14px 0}
+.remark-submit dd{border:none;padding:0;padding-bottom:10px}
+.remark-submit dd div{width:100%}
+.remark-submit .word-count{float:right;color:#999;text-align:right;margin-right:120px;_margin-right:60px}
+.remark-submit .onRemark{float:left;width:547px;height:48px;line-height:48px;padding:0;border:1px solid #dfdfdf;border-right:none;box-shadow:1px 1px 2px #ededed inset;padding-left:12px}
+.remark-submit input.title{float:left;cursor:pointer;width:120px;height:50px;line-height:50px;font-size:20px;color:#fff;text-shadow:1px 0 2px #a8b3c7;padding:0;border:none;margin:0;background:url(../img/diaoyu123_common_icon.png) -10px -265px no-repeat}
+
+.fishing-score{border:1px solid #f0f0f0;background:#f7f7f7;padding:10px 0 12px 12px;margin-bottom:15px;position:relative}
+.fishing-score dt{font-size:18px;color:#555;margin-bottom:9px}
+.fishing-score dt span{display:block;width:30px;height:30px;background:url(../img/diaoyu123_common_icon.png) -81px -108px no-repeat;position:absolute;right:-1px;top:-2px;_right:0;_top:-1px}
+
+.fishing-score dd{width:100%;margin-bottom:6px;overflow:hidden}
+.fishing-score .big-score-box .score-box{height:22px;line-height:22px}
+.fishing-score .big-score-box .score-bg-box{width:108px !important;height:22px;line-height:22px}
+.fishing-score .big-score-box .score-bg-box i{float:left;display:inline-block;width:100%;height:22px;line-height:22px;background-position:0 -370px}
+.fishing-score .big-score-box .score-bg-box .score-red-bg{background-position:0 -346px;width:80%;margin-top:-22px}
+
+.fishing-score dd span{float:left;display:block;height:18px;line-height:18px}
+.fishing-score dd span.title{font-size:20px;color:#f19149}
+.fishing-score dd span.score-box{width:280px;color:#999 !important}
+.fishing-score dd span.score-per-bg{width:100px;height:13px;margin:3px 5px 0 0;background:#ffbe69}
+.fishing-score dd span.score-per-bg80{width:80px}
+.fishing-score dd span.score-per-bg60{width:60px}
+.fishing-score dd span.score-per-bg40{width:40px}
+.fishing-score dd span.score-per-bg20{width:20px}
+.fishing-score dd span.score-per-bg0{width:0px}
+/*渔具店详情  -结束*/
+
+/*渔具店商品详情  -开始*/
+.on-product-details{margin-bottom:20px;overflow:hidden}
+.on-product-details div.title{margin-bottom:13px}
+.on-product-details div.title h1{height:29px;line-height:29px;width:90%;font-size:25px;color:#333;_font-weight:bold;overflow:hidden}
+
+.product-pics{float:left;width:300px;height:364px;margin-right:20px;overflow:hidden}
+.product-pics img{height:300px;width:300px;margin-bottom:10px}
+.product-pics ul{width:312px;height:54px;overflow:hidden}
+.product-pics li{float:left;margin:2px 12px 0 0}
+.product-pics li.hover{border:2px solid #ff4400;margin:0 10px 0 0}
+.product-pics li a{width:50px;height:50px}
+.product-pics li img{margin:0;width:50px;height:50px}
+
+.product-details{width:360px;float:left}
+.product-details li{width:180px;height:38px;line-height:38px;border-bottom:1px dashed #e0e0e0;float:left;color:#333}
+.product-details li.noborder{height:28px;line-height:28px;border-bottom:none}
+.product-details li.title{width:360px;height:75px;}
+.product-details li.title .price{font-size:20px;color:#eb4643;padding-left:37px}
+.product-details li.title .tobuy{float:right;width:140px;height:36px;line-height:36px;font-size:18px;color:#fff;text-align:center;background:#eb4643;border-radius:3px}
+.product-details li.title p{color:#666}
+.product-details .details-color{color:#509bff}
+.product-details li span{color:#999}
+.product-details li span.details-color{color:#509bff}
+/*渔具店商品详情  -结束*/
+/*渔具用品列表  -开始*/
+.product-nav-list{border:1px solid #e5e5e5;margin-top:8px;border-top:none;overflow:hidden}
+.product-nav-list ul{width:975px;margin:10px 0 5px 24px;overflow:hidden}
+.product-nav-list li{width:170px;height:202px;float:left;margin-right:25px}
+.product-nav-list li a{width:170px;height:202px;color:#333}
+.product-nav-list li a:hover{color:#f60}
+.product-nav-list li img{width:170px;height:170px}
+.product-nav-list li span{height:32px;line-height:32px}
+
+.product-list dl{height:30px;line-height:30px;background:#f7f7f7;margin-top:5px;overflow:hidden}
+.product-list dt{float:left;width:74px;font-weight:bold;text-indent:9px}
+.product-list dl.select-red dt{color:#fff;background:url(../img/diaoyu123_common_icon.png) 69px -281px no-repeat;background-color:#ff825e}
+.product-list dl.select-blue dt{color:#fff;background:url(../img/diaoyu123_common_icon.png) 69px -311px no-repeat;background-color:#4eb7f3}
+.product-list dd{float:left;width:870px;height:30px;line-height:30px;padding-left:30px}
+.product-list dd a{height:30px;line-height:30px;margin-right:25px;color:#333}
+.product-list dd a.hover{font-weight:bold}
+.product-list dd a.more{margin-right:-20px;width:100px;height:30px;background:url(../img/diaoyu123_common_icon.png) -100px -526px no-repeat}
+.product-list dl.on-select a{font-weight:bold;color:#f90;padding:4px 10px 4px 6px;border:1px dashed #f90;background:#fff;_margin-top:10px;_display:inline-block}
+.product-list dl.on-select i{font-style:normal;display:inline-block;height:13px;width:13px;position:relative;top:3px;left:6px;background:url(../img/diaoyu123_common_icon.png) -187px -478px no-repeat;_background-position:-190px -475px}
+.product-list dd a:hover{color:#f60}
+
+.product-list-choose{ width:100%;margin:20px 0 10px 0;overflow:hidden}
+.product-list-choose a{float:left;height:24px;line-height:24px;width:60px;background:#e4e4e4;color:#999;text-align:center;margin-right:10px}
+.product-list-choose a.hover{background:#4eb7f3;color:#fff;font-weight:bold}
+.product-list-choose a:hover{color:#f60}
+.product-list-choose a.publish-shop{float:right;width:90px;height:24px;line-height:24px;color:#fff;background:#e64849}
+
+.product-list ul{width:1020px;overflow:hidden}
+.product-list li{width:235px;height:334px;float:left;margin:12px 20px 0 0}
+.product-list li img{width:235px;height:235px;margin-bottom:7px}
+.product-list li span{float:left;display:block;height:18px;line-height:18px}
+.product-list li a.product-title{display:inline-block;width:100%;height:30px;line-height:30px;font-size:14px;font-weight:bold;margin-top:3px}
+.product-list li p{width:100%;height:36px;line-height:18px;color:#999;overflow:hidden}
+
+dl.all-product{position:absolute;right:174px;_right:129px;height:189px;width:890px;border:1px solid #ddd}
+dl.all-product dt{width:100%;height:28px;line-height:28px;border-bottom:1px solid #ddd;font-weight:normal;background:#f3f3f3}
+dl.all-product dt span{float:left;color:#444;padding:0 20px 0 10px}
+dl.all-product dt a{float:left;color:#333;padding-right:2px}
+dl.all-product dd{width:842px;height:152px;padding:4px 24px;background:#fff;overflow-y:auto;overflow-x:hidden}
+dl.all-product dd a{width:165px;float:left;color:#005aa0;margin:0;overflow:hidden}
+dl.all-product a:hover{color:#f60}
+
+.area-list{position:absolute;right:174px;_right:129px;width:858px;height:129px;border:1px solid #ddd; padding:13px 6px 13px 24px;background:#fff;overflow-y:auto;overflow-x:hidden}
+.area-list dl{width:100%;line-height:26px;height:auto;background:#fff;margin:0}
+.area-list dl a,.area-list dl dt span{display:inline-block;height:26px;line-height:26px;margin-right:20px;color:#005aa0}
+.area-list dl a:hover{color:#f60}
+.area-list dl dt{width:auto;line-height:26px;text-indent:0}
+.area-list dl dd{width:795px;height:auto;line-height:26px;padding:0}
+/*渔具用品列表  -结束*/
+
+/*渔具店列表  -开始*/
+.product-nav{border:1px solid #e5e5e5;margin-bottom:10px;border-bottom:none;overflow:hidden}
+.product-nav .content-list-nav{margin:0}
+
+.shop-list ul{width:100%;overflow:hidden}
+.shop-list li{height:100px;padding:20px 0;border-bottom:1px solid #d9d8d6}
+.shop-list li img{float:left;width:100px;height:100px;margin-right:15px}
+.shop-list li p{float:left;width:560px;line-height:22px;color:#666;overflow:hidden}
+.shop-list li span{float:left;display:block;height:18px;line-height:18px}
+.shop-list li span.score-box{width:230px;margin:7px 0 3px 0}
+.shop-list li span.score-box i{font-style:normal;color:#999;padding-left:5px}
+.shop-list li span.score-box i.score-red-bg{padding-left:0}
+.shop-list li a.title{width:565px;float:left;height:28px;line-height:28px;font-size:18px;color:#333;overflow:hidden}
+.shop-list li a span{float:right;font-size:20px;color:#eb4643;margin-top:5px}
+.shop-list li a span.shop-for-free{ font-size:18px;color:#13ba65}
+.shop-list li a span i{font-style:normal;font-size:12px;color:#999;padding-left:4px}
+.shop-list li a:hover{color:#f60}
+
+dl.i-s-border{height:540px;margin-top:20px;overflow:hidden}
+dl.i-s-border dt{height:38px;line-height:38px;margin-top:4px}
+dl.i-s-border dd{display:block;padding-bottom:10px;margin:10px 0 0 0;border-bottom:1px dashed #ddd;overflow:hidden}
+dl.i-s-border dd p{width:168px;height:36px;line-height:18px;color:#999;overflow:hidden}
+
+.new-remark{width:298px;border:1px solid #ddd;padding-bottom:15px;margin-top:15px;background:#f7f7f7}
+.new-remark dt{height:36px;line-height:36px;font-size:18px;color:#2d2d2d;padding-left:10px;margin-bottom:-1px;border-bottom:1px solid #ddd}
+.new-remark dd{padding:0 10px}
+.new-remark p{color:#999;line-height:26px;padding-bottom:8px}
+.new-remark a{color:#6491da}
+.new-remark a:hover{color:#f60}
+.new-remark .remark-comment{color:#2d2d2d;border-top:1px dashed #ddd;padding:8px 0 0 0}
+.new-remark .remark-comment a{font-weight:bold}
+/*渔具店列表  -结束*/
+
+/*比赛.比赛时间.比赛专题.比赛专题列表  -开始*/
+.match-list{float:left;width:700px;overflow:hidden}
+.match-list .page{clear:both;margin-right:34px}
+.match-list ul{border-top:1px solid #fff;padding-bottom:12px}
+.match-list ul li{border-top:1px dashed #e5e5e5;border-bottom:none;margin-top:-1px}
+
+.event-list{width:100%;padding:0 0 10px 0;overflow:hidden}
+.event-list dt{height:20px;line-height:20px}
+.event-list dt .title{float:left;font-size:18px}
+.event-list dd{height:80px;margin-top:15px}
+.event-list dd img{float:left;height:80px;width:100px;margin-right:10px}
+.event-list dd a.event-title{display:block;font-weight:bold;height:36px;line-height:18px;margin-bottom:4px;overflow:hidden}
+.event-list dd p{display:block;float:left;height:20px;line-height:20px;width:180px;color:#999;overflow:hidden}
+
+.event-listing{padding-top:10px}
+.event-listing dd{margin-top:12px;height:auto}
+.event-listing dd a{display:block;height:24px;line-height:24px;text-indent:12px;background:url(../img/diaoyu123_common_icon.24.png) -30px -131px no-repeat;background:url(../img/diaoyu123_common_icon.24.ie6.png) -30px -131px no-repeat;overflow:hidden}
+.fish-match-list li dd{max-height:48px}
+.fish-match-list li .match-time{color:#eb6100}
+.fish-match-list li .match-company{color:#444}
+.fish-match-list li .match-time span{color:#999}
+
+.event-listing-top{padding-top:10px}
+.fish-matchsubject-list li dl{height:140px;overflow:hidden}
+.fish-matchsubject-list li dt{height:60px;line-height:60px}
+
+.mach-subject-instro{width:100%;height:300px;padding-top:50px;margin-bottom:16px;background:url(../img/bisaizhuanti_back.png) 0 0 no-repeat;overflow:hidden}
+.mach-subject-instro dl{padding:0 20px;font-size:14px;color:#259;overflow:hidden}
+.mach-subject-instro dt{width:100%;height:104px;line-height:104px;font-size:40px;text-shadow:1px 1px #fff;overflow:hidden}
+.mach-subject-instro dd p{line-height:26px;overflow:hidden}
+.mach-subject-instro dd p span{color:#e62685}
+.mach-subject-instro dd p a{color:#00a0ff}
+.mach-subject-instro dd p a:hover{color:#f60}
+
+.mach-subject-instro dd.subject-countdown{width:180px;height:40px;line-height:40px;text-align:left;vertical-align:top;position:relative;top:-54px;left:775px}
+.mach-subject-instro dd.subject-countdown span{display:inline-block;width:56px;height:40px;line-height:40px;text-align:center;margin:0 5px;background:#fff;border-radius:9px;font-size:36px;color:#30b3ff}
+
+.subject-instro{width:100%;color:#444;overflow:hidden}
+.subject-instro dt{width:100%;height:42px;line-height:42px;font-size:22px;overflow:hidden}
+.subject-instro dt i{float:left;width:3px;height:22px;margin:10px 8px 0 0;background:#47b9ff}
+.subject-instro dd p{line-height:26px;font-size:14px;text-indent:28px;margin-bottom:18px}
+.subject-instro dd a{float:left;width:190px;height:162px;margin:11px 13px 0 0}
+.subject-instro dd a i{font-style:normal;float:right;width:54px;height:31px;line-height:31px;text-align:center;background:url(../img/diaoyu123_common_icon.png) -114px -103px no-repeat;position:relative;top:-167px;right:6px}
+.subject-instro dd a i.winner1{color:#fffd7c}
+.subject-instro dd a i.winner2{color:#fff;background-position:-114px -139px}
+.subject-instro dd a i.winner3{color:#686c71;background-position:-114px -176px}
+.subject-instro dd a img{height:132px;width:190px}
+.subject-instro dd a span{display:block;height:30px;line-height:30px;width:100%;text-align:center;background:#f3f3f3;overflow:hidden}
+
+.subject-instro-news{margin-top:20px}
+.subject-instro-news dd{float:left;width:500px;height:168px;overflow:hidden}
+.subject-instro-news dd a{float:left;display:block;width:180px;height:155px}
+.subject-instro-news dd a img{width:180px;height:125px}
+.subject-instro-news dd ul{float:left;width:300px;overflow:hidden}
+.subject-instro-news dd li{width:300px;height:18px;line-height:18px;margin-top:10px;*margin-top:8px;overflow:hidden}
+.subject-instro-news dd li a{float:left;width:260px;height:18px;line-height:18px;font-size:14px;text-indent:10px;margin:0;background:url(../img/diaoyu123_common_icon.24.png) -31px 7px no-repeat;_background: url(../img/diaoyu123_common_icon.24.ie6.png) -31px 7px no-repeat}
+.subject-instro-news dd li span{float:right;width:40px;color:#999;font-size:12px;text-align:right}
+
+.subject-instro-rule{margin-top:20px;}
+.subject-instro-rule dd p{line-height:28px;margin-bottom:0}
+.subject-instro-rule dd p span{display:inline-block;font-weight:bold;text-indent:-28px;*text-indent:0}
+
+
+.comment-subject{width:680px;margin:4px 0 0 0;border:none;overflow:hidden}
+.comment-subject .comment-form{height:98px;border:none;background:#fff}
+.comment-subject .comment-title{padding:0}
+.comment-subject .comment-list{clear:both;padding:0}
+.comment-subject form{width:680px}
+.comment-subject .comment-input{width:554px;padding-right:0}
+
+/*比赛.比赛时间.比赛专题.比赛专题列表  -结束*/
+
+/*文章/图片详情页  -结束*/
+.view-head .title{width:100%;line-height:40px;text-align:center;font-size:30px;margin-top:6px;overflow:hidden}
+.view-head p{width:100%;height:32px;line-height:32px;text-align:center;color:#999;overflow:hidden}
+.view-head p a{color:#999}
+.view-head ul{padding:3px 17px;width:643px;margin-top:20px;background:#f1f1f1;overflow:hidden}
+.view-head li{float:left;width:212px;height:26px;line-height:26px;overflow:hidden}
+.view-head li span{color:#999}
+.view-head li a{padding-right:18px}
+.view-head a:hover{color:#f60}
+
+.view-head dl{padding:3px 17px;width:643px;margin-bottom:15px;background:#f1f1f1;overflow:hidden}
+.view-head dt{float:left;width:40px;height:26px;line-height:26px;color:#999}
+.view-head dd{float:left;width:600px;line-height:26px;}
+.view-head dd a{float:left;display:block;height:26px;line-height:26px;padding-right:18px}
+.view-head dd a:hover{color:#f60}
+
+.v-l-content{width:100%;margin-bottom:10px;overflow:hidden}
+.v-l-content p{font-size:14px;text-indent:28px;line-height:24px;margin:20px 0 6px 0;overflow:hidden}
+.v-l-content p a{color:#f60}
+.v-l-content p a:hover{color:#F22;text-decoration:underline}
+.v-l-content img{margin:0 auto}
+
+.view-about{width:680px;margin-bottom:10px}
+.view-about dt{height:50px;line-height:50px;color:#252525;border:none;border-top:2px solid #f0f0f0}
+.view-about dd{float:left;width:340px;height:104px;margin:0;overflow:hidden}
+.view-about dd a{width:180px;font-size:14px;color:#333}
+.view-about dd a:hover{color:#f60}
+.view-about-noimg dt{height:44px}
+.view-about-noimg dd{height:124px}
+.view-about-noimg dd a{width:320px}
+
+.new-add-view{width:678px;height:210px;overflow:hidden}
+.new-add-view dt{height:44px;line-height:44px;}
+.new-add-view dt .title{font-size:16px;color:#666;font-weight:bold;}
+.new-add-view .new-add-view-left{float:left;width:420px;height:100%;margin-right:20px}
+.new-add-view-right a, .new-add-view-left a{float:left;overflow:hidden;font-size:14px;width:200px;height:24px;line-height:24px;margin-bottom:4px;padding-left:10px;background:url(../img/diaoyu123_common_icon.24.png) -31px 9px no-repeat;_background:url(../img/diaoyu123_common_icon.24.ie6.png) -31px 9px no-repeat}
+.new-add-view-left a.img{background:none;width:200px;height:166px;margin-right:10px;padding:0;}
+.new-add-view-left a.img img{width:200px;height:140px;}
+.new-add-view-left a.img span{display:block;width:100%;height:26px;line-height:26px;font-size:12px;text-align:center}
+.new-add-view .new-add-view-right{float:left;width:238px;height:100%;margin-right:0}
+.new-add-view-right a{width:228px;height:22px;line-height:22px;margin-bottom:0;overflow:hidden}
+.new-add-view-right dd span{display:block;padding-left:10px;margin-bottom:1px;overflow:hidden;width:228px;height:18px;line-height:18px;font-size:12px;color:#ccc}
+
+dl.look-another-view{width:230px;margin-right:0}
+.look-another-view dd a{font-size:12px}
+.look-another-view .i-hot-bbs-list span{display:block;width:200px;color:#999}
+
+.pic-head{border:1px solid #f0f0f0;width:998px;margin-bottom:10px;overflow:hidden}
+.pic-head .title{width:100%;height:45px;line-height:45px;text-align:center;font-size:25px;margin:11px 0 9px 0;overflow:hidden}
+
+.picbox{width:958px;position:relative;margin-bottom:30px;overflow:hidden}
+.curleft,.curright{position:absolute;z-index:10;width:459px;height:100%;left:30px;top:0;cursor:url(http://static.diaoyu123.com/www/default/img/curleft.cur),auto;background:#fff;filter:alpha(opacity=0);-moz-opacity:0;opacity:0;}
+.curright{left:459px;top:0;cursor:url(http://static.diaoyu123.com/www/default/img/curright.cur),auto}
+.picleft,.picright{float:left;margin-top:22%;width:30px;height:61px;color:#a5a1a0}
+.picleft a,.picright a{float:left;width:30px;height:61px;background:url(../img/diaoyu123_common_icon.png) 0 -599px no-repeat;cursor:pointer}
+.picright a{background-position:-30px -599px}
+.picleft a:hover{background-position:-63px -599px}
+.picright a:hover{background-position:-93px -599px}
+.picconter{float:left;width:898px;overflow:hidden}
+.picconter img{display:block;margin:0 auto; max-width:800px;}
+
+.pic-head .picinfo{width:100%;height:40px;padding:10px;background:#f3f3f3;overflow:hidden}
+.pic-head .picinfo span{display:block;float:left;width:110px;height:40px;font-size:16px;color:#444;font-family:'Arial'}
+.pic-head .picinfo span i.red{font-size:40px;color:#ba0606}
+.pic-head .picinfo p{float:left;width:870px;height:40px;line-height:20px;color:#666}
+
+.pic-view-head{border-bottom:1px solid #d0d0d0;padding-top:13px;margin-bottom:5px}
+.pic-view-head ul{background:none;width:680px;padding:0 0 3px;margin-bottom:0}
+.pic-view-head ul li{width:225px}
+
+.pic-tutor dt{border:none;height:30px;line-height:30px;font-size:14px;color:#444;font-weight:bold;margin:10px 0 3px 0}
+.pic-tutor dd{padding:0 0 11px 0;line-height:20px;color:#7b7b7b}
+
+.class-tab-view{width:680px;float:none}
+.class-tab-view dt{color:#252525;margin:0}
+.class-tab-view dd{width:720px;margin-top:0;overflow:hidden}
+.class-tab-view dd a{height:162px;width:200px;margin:14px 40px 0 0;overflow:hidden}
+.class-tab-view dd img{height:140px;width:200px}
+.class-tab-view dd span{height:22px;line-height:32px;color:#444}
+.class-tab-view dd a:hover span{color:#f60}
+/*文章/图片详情页  -结束*/
+
+/*展会新闻页  -开始*/
+.show-nav{width:980px;padding-left:20px;height:50px;margin:-16px 0 16px 0;background:#4682db;overflow:hidden}
+.show-nav li{float:left;height:50px;line-height:50px;margin-right:25px}
+.show-nav li a{font-size:16px;text-shadow:1px 1px 1px #4f88dc;line-height:50px;color:#a9d5ed}
+.show-nav li a.hover{color:#fff}
+.show-nav li a:hover{color:#fff}
+
+.show-ppt{width:100%;padding-top:4px;margin-bottom:12px;overflow:hidden}
+.show-ppt .i-g-ppt{float:left;margin-right:20px}
+.show-ppt dl.i-headlines-game{float:left;width:380px;padding-bottom:0;overflow:hidden}
+.show-ppt dl.i-headlines-game dd p{font-family:'宋体',Arial,Helvetica,sans-serif;height:40px;color:#999;overflow:hidden}
+
+.show-ppt .show-review{float:right;width:230px;height:230px;overflow:hidden}
+.show-ppt .show-review dt{width:100%;height:20px;line-height:20px;font-size:18px;color:#444}
+.show-ppt .show-review dt.mill-review{margin-bottom:15px}
+.show-ppt .show-review dt.mill-review span{float:left}
+.show-ppt .show-review dt a{font-family:'宋体',Arial,Helvetica,sans-serif;float:right;font-size:12px;color:#259}
+.show-ppt .show-review dt a:hover{color:#f60}
+.show-ppt .show-review dd p{height:80px;line-height:20px;color:#666;margin:11px 0 16px 0;overflow:hidden}
+.show-ppt .show-review dd a{float:left;width:75px;height:34px;line-height:34px;text-align:center;background:#f3f3f3;margin:0 0 1px 1px;overflow:hidden}
+
+.brand-onshow{padding-bottom:5px}
+.brand-onshow dt{height:28px;line-height:20px}
+.brand-onshow dd a{width:300px;height:130px;margin-right:0}
+.brand-onshow dd img{width:300px;height:130px}
+
+.match-list div.show-list-more{width:680px;padding-top:15px;margin-right:20px;overflow:hidden}
+.match-list div.show-list-more a{display:block;width:680px;height:40px;line-height:40px;text-align:center;background:#f7f7f7;overflow:hidden}
+
+.match-list ul.show-product-list{padding:0 0 27px 10px;overflow:hidden}
+.match-list ul.show-product-list li{float:left;height:261px;width:213px;margin:13px 10px 0 0;padding:0;border:none;max-height:261px}
+.match-list ul.show-product-list li a{width:213px;height:261px}
+.match-list ul.show-product-list li img{width:213px;height:213px;margin-bottom:12px}
+.match-list ul.show-product-list li p{width:100%;height:36px;line-height:18px;color:#999;overflow:hidden}
+.show-news-list{padding-top:8px}
+
+/*展会新闻页  -结束*/
+

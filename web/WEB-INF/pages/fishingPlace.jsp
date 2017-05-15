@@ -25,15 +25,43 @@
 <input type="button" onclick="setCity()" value="查找" />
 <div id="container" style="width:1024px;height:600px;"></div>
 <form action="addFishingPlace" method="post">
-    坐标：<input type="text" id="coordinate" readonly name="coordinate"/><br/>
-    名称：<input type="text" id="fishing_place_name"  name="fishing_place_name"/><br/>
-    鱼的种类：<input type="text" id="species_of_fish"  name="species_of_fish"/><br/>
-    是否收费：
-    <select id="free_or_not" name="free_or_not" >
-        <option value="是">是</option>
-        <option value="否" selected>否</option>
-    </select><br/>
-    发现者：<input type="text" id="discoverer_name" value="${u_name}" readonly name="discoverer_name"/><br/>
+    <table>
+        <tr>
+            <td>坐标:</td>
+            <td><input type="text" id="coordinate" readonly name="coordinate"/></td>
+        </tr>
+        <tr>
+            <td>名称:</td>
+            <td><input type="text" id="fishing_place_name"  name="fishing_place_name"/></td>
+        </tr>
+        <tr>
+            <td>鱼的种类:</td>
+            <td>
+                <input type="checkbox" value="1"  name="species_of_fish"/>青鱼
+                <input type="checkbox" value="2"  name="species_of_fish"/>鲈鱼
+                <input type="checkbox" value="3"  name="species_of_fish"/>鳟鱼
+                <input type="checkbox" value="4"  name="species_of_fish"/>罗非鱼
+                <input type="checkbox" value="5"  name="species_of_fish"/>鲤鱼
+                <br/>
+                <input type="checkbox" value="6"  name="species_of_fish"/>草鱼
+                <input type="checkbox" value="7"  name="species_of_fish"/>鳊鱼
+                <input type="checkbox" value="8"  name="species_of_fish"/>鲴鱼
+                <input type="checkbox" value="9"  name="species_of_fish"/>黑鱼
+                <input type="checkbox" value="10"  name="species_of_fish"/>鲫鱼
+            </td>
+        </tr>
+        <tr>
+            <td>是否收费:</td>
+            <td><select id="free_or_not" name="free_or_not" >
+                <option value="是">是</option>
+                <option value="否" selected>否</option>
+            </select></td>
+        </tr>
+        <tr>
+            <td>发现者:</td>
+            <td><input type="text" id="discoverer_name" value="${u_name}" readonly name="discoverer_name"/></td>
+        </tr>
+    </table>
     <input type="submit" value="添加钓点">
 </form>
 

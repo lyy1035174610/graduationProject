@@ -8,6 +8,7 @@
     </script>
 
     <script type="text/javascript" src="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/js/main.js"></script>
     <link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css" />
 
     <style type="text/css">
@@ -234,28 +235,31 @@
             background-color: #006dac;
         }
     </style>
-    <script>
-        window.onload = function() {
+    <script type="text/javascript">
+        var fishingPlaceInfo=[{"fishing_place_name":"鱼多多","longitude":113.358468,"latitude":23.051268,"free_or_not":"否","species_of_fish":"鲈鱼"},
+            {"fishing_place_name":"出水口","longitude":113.406761,"latitude":23.037168,"free_or_not":"否","species_of_fish":"鳊鱼,罗飞鱼"},
+            {"fishing_place_name":"新洲码头","longitude":113.419121,"latitude":23.049406,"free_or_not":"是","species_of_fish":"青鱼"}];//从后台查询到的钓场列表信息数组
+        var currentLongitude;
+        var currentLatitude;
+        var url = '<%=request.getContextPath()%>/getFishingPlaceInfo';
+        var f_html='';
+        window.onload=function init() {
             var sidebar_filter = document.getElementById('sidebar-filter');
             var sidebar_fishingPlace = document.getElementById('sidebar-fishingPlace');
             var list = document.getElementById('list');//只有一个list，表示筛选条件列表
             var fishingPlace = document.getElementById('fishingPlace');//钓场列表
-            list.style.display = 'block';
-            fishingPlace.style.display = 'none';
             var list_li = list.getElementsByTagName('li');//list里有多个li,每个li表示一种筛选条件
             var list_span = list.getElementsByTagName('span');//筛选条件的名称列表
             var fishingPlace_html = fishingPlace.innerHTML;
-            var customLayer;
-            //地图加载
+            f_html=fishingPlace_html;
+           // var customLayer;
             var map = new BMap.Map("map-cont",{enableMapClick:false});
-            var point = new BMap.Point(116.404, 39.915);
-            map.centerAndZoom(point, 15);
-            map.enableScrollWheelZoom(true);
+            var point = new BMap.Point(113.270793,23.135308);
             var navigationControl = new BMap.NavigationControl();
-            navigationControl.setOffset(new BMap.Size(40,40));
-            map.addControl(navigationControl);
-
-
+            var geolocation = new BMap.Geolocation();
+            var checkbox = document.getElementsByTagName('input');
+            list.style.display = 'block';
+            fishingPlace.style.display = 'none';
 
             //为每个筛选条件绑定展开跟关闭事件
             for(var i=0;i<list_li.length;i++){
@@ -286,17 +290,156 @@
                 fishingPlace.style.display = 'block';
             };
 
+            //地图加载
+            map.centerAndZoom(point, 15);
+            map.enableScrollWheelZoom(true);
+
+            navigationControl.setOffset(new BMap.Size(40,40));
+            map.addControl(navigationControl);
+
+            //定位当前坐标
+            geolocation.getCurrentPosition(function(r){
+                if(this.getStatus() == BMAP_STATUS_SUCCESS){
+                    var mk = new BMap.Marker(r.point);
+                    map.addOverlay(mk);
+                    map.panTo(r.point);
+                    currentLongitude = r.point.lng;
+                    currentLatitude = r.point.lat;
+                    alert('您的位置：'+r.point.lng+','+r.point.lat);
+                }
+                else {
+                    alert('failed'+this.getStatus());
+                }
+            },{enableHighAccuracy: true})
+            //关于状态码
+            //BMAP_STATUS_SUCCESS	检索成功。对应数值“0”。
+            //BMAP_STATUS_CITY_LIST	城市列表。对应数值“1”。
+            //BMAP_STATUS_UNKNOWN_LOCATION	位置结果未知。对应数值“2”。
+            //BMAP_STATUS_UNKNOWN_ROUTE	导航结果未知。对应数值“3”。
+            //BMAP_STATUS_INVALID_KEY	非法密钥。对应数值“4”。
+            //BMAP_STATUS_INVALID_REQUEST	非法请求。对应数值“5”。
+            //BMAP_STATUS_PERMISSION_DENIED	没有权限。对应数值“6”。(自 1.1 新增)
+            //BMAP_STATUS_SERVICE_UNAVAILABLE	服务不可用。对应数值“7”。(自 1.1 新增)
+            //BMAP_STATUS_TIMEOUT	超时。对应数值“8”。(自 1.1 新增)
+
+            //加载数据
+            insertData(null,fishingPlaceInfo);
+            //insertOverlay(fishingPlaceInfo);
+
+            //在地图添加标记
+            function addMarker(point){
+                var marker = new BMap.Marker(point);
+                map.addOverlay(marker);
+            }
+            //添加自定义覆盖物,<-------开始------->
+            function ComplexCustomOverlay(point, text, mouseoverText){
+                this._point = point;
+                this._text = text;
+                this._overText = mouseoverText;
+            }
+            ComplexCustomOverlay.prototype = new BMap.Overlay();
+            ComplexCustomOverlay.prototype.initialize = function(map){
+                this._map = map;
+                var div = this._div = document.createElement("div");
+                div.style.position = "absolute";
+                div.style.zIndex = BMap.Overlay.getZIndex(this._point.lat);
+                div.style.backgroundColor = "#EE5D5B";
+                div.style.border = "1px solid #BC3B3A";
+                div.style.color = "white";
+                div.style.height = "18px";
+                div.style.padding = "2px";
+                div.style.lineHeight = "18px";
+                div.style.whiteSpace = "nowrap";
+                div.style.MozUserSelect = "none";
+                div.style.fontSize = "12px"
+                var span = this._span = document.createElement("span");
+                div.appendChild(span);
+                span.appendChild(document.createTextNode(this._text));
+                var that = this;
+
+                var arrow = this._arrow = document.createElement("div");
+                arrow.style.background = "url(http://map.baidu.com/fwmap/upload/r/map/fwmap/static/house/images/label.png) no-repeat";
+                arrow.style.position = "absolute";
+                arrow.style.width = "11px";
+                arrow.style.height = "10px";
+                arrow.style.top = "22px";
+                arrow.style.left = "10px";
+                arrow.style.overflow = "hidden";
+                div.appendChild(arrow);
+
+                div.onmouseover = function(){
+                    this.style.backgroundColor = "#6BADCA";
+                    this.style.borderColor = "#0000ff";
+                    this.getElementsByTagName("span")[0].innerHTML = that._overText;
+                    arrow.style.backgroundPosition = "0px -20px";
+                }
+
+                div.onmouseout = function(){
+                    this.style.backgroundColor = "#EE5D5B";
+                    this.style.borderColor = "#BC3B3A";
+                    this.getElementsByTagName("span")[0].innerHTML = that._text;
+                    arrow.style.backgroundPosition = "0px 0px";
+                }
+
+                map.getPanes().labelPane.appendChild(div);
+
+                return div;
+            }
+            ComplexCustomOverlay.prototype.draw = function(){
+                var mp = this._map;
+                var pixel = mp.pointToOverlayPixel(this._point);
+                this._div.style.left = pixel.x - parseInt(this._arrow.style.left) + "px";
+                this._div.style.top  = pixel.y - 30 + "px";
+            }
+            //var txt = "银湖海岸城", mouseoverTxt = txt + " " + parseInt(Math.random() * 1000,10) + "套" ;
+
+            //var myCompOverlay = new ComplexCustomOverlay(new BMap.Point(113.30764968,23.1200491), "银湖海岸城",mouseoverTxt);
+
+           // map.addOverlay(myCompOverlay);
+
+            for(var i=0;i<fishingPlaceInfo.length;i++){
+                var money=fishingPlaceInfo[i].free_or_not=="是"?"免费":"收费";
+                var text=fishingPlaceInfo[i].fishing_place_name+"("+money+")";
+                var detailText=text+fishingPlaceInfo[i].species_of_fish;
+                //alert(detailText);
+                var point = new BMap.Point(fishingPlaceInfo[i].longitude,fishingPlaceInfo[i].latitude);
+                var myCompOverlay = new ComplexCustomOverlay(point,text ,detailText);
+                map.addOverlay(myCompOverlay);
+            }
+            //添加自定义覆盖物,<-------结束------->
+
+
             function addListen(fishingPlaceInfo){
-                var hotelI = document.getElementsByClassName('fishingPlace');
-                for(var i=0 ; i<hotelI.length; i++) {
-                    hotelI[i].myCompOverlay = new ComplexCustomOverlay(new BMap.Point(fishingPlaceInfo[i].location[0], fishingPlaceInfo[i].location[1]), fishingPlaceInfo[i]);
-                    hotelI[i].onmouseover = function () {
+                var fishingPlaceI = document.getElementsByClassName('fishingPlace');
+                alert(fishingPlaceI.length);
+                for(var i=0 ; i<fishingPlaceI.length; i++) {
+                    money=fishingPlaceInfo[i].free_or_not=="是"?"免费":"收费";
+                    text=fishingPlaceInfo[i].fishing_place_name+"("+money+")";
+                    detailText=text+fishingPlaceInfo[i].species_of_fish;
+                    fishingPlaceI[i].myCompOverlay = new ComplexCustomOverlay(new BMap.Point(fishingPlaceInfo[i].longitude, fishingPlaceInfo[i].latitude), text,detailText);
+                    fishingPlaceI[i].onmouseover = function () {
                         map.addOverlay(this.myCompOverlay);
+                        //alert("进入");
                     };
-                    hotelI[i].onmouseout = function () {
+                    fishingPlaceI[i].onmouseout = function () {
                         map.removeOverlay(this.myCompOverlay);
+                       // alert("退出");
                     };
                 }
+            }
+
+            function insertOverlay(fishingPlaceInfo) {
+                alert(fishingPlaceInfo.length+"hahah");
+                for(var i=0;i<fishingPlaceInfo.length;i++){
+                    var money=fishingPlaceInfo[i].free_or_not=="是"?"免费":"收费";
+                    var text=fishingPlaceInfo[i].fishing_place_name+"("+money+")";
+                    var detailText=text+fishingPlaceInfo[i].species_of_fish;
+                    alert(detailText);
+                    var point = new BMap.Point(fishingPlaceInfo[i].longitude,fishingPlaceInfo[i].latitude);
+                    var myCompOverlay = new ComplexCustomOverlay(point,text ,detailText);
+                    map.addOverlay(myCompOverlay);
+                }
+                alert("1111111");
             }
 
             //数据加载
@@ -305,149 +448,111 @@
                 if(!err){
                     var html = '';
                     for(var i=0;i<fishingPlaceInfo.length;i++){
-                        html  +=  fishingPlace_html.replace(/\{\{imgSrc\}\}/g,fishingPlaceInfo[i].img.big)
-                            .replace(/\{\{name\}\}/g,fishingPlaceInfo[i].name)
-                            .replace(/\{\{address\}\}/g,fishingPlaceInfo[i].address)
-                            .replace(/\{\{price\}\}/g,'&yen;'+fishingPlaceInfo[i].price);
+                        money=fishingPlaceInfo[i].free_or_not=="是"?"免费":"收费";
+                        text=fishingPlaceInfo[i].fishing_place_name+"("+money+")";
+                        detailText=text+fishingPlaceInfo[i].species_of_fish;
+                        html  +=  fishingPlace_html
+                            .replace(/\{\{name\}\}/g,fishingPlaceInfo[i].fishing_place_name)
+                            .replace(/\{\{address\}\}/g,"longitude="+fishingPlaceInfo[i].longitude+"&latitude="+fishingPlaceInfo[i].latitude)
+                            .replace(/\{\{price\}\}/g,money);
+                        //var point = new BMap.Point(fishingPlaceInfo[i].longitude,fishingPlaceInfo[i].latitude);
+                       // var myCompOverlay = new ComplexCustomOverlay(point,text ,detailText);
+                        //map.addOverlay(myCompOverlay);
+                        //addMarker(point);
                     }
+                    //alert("前。。");
                     fishingPlace.innerHTML = html;
+                    //addListen(fishingPlaceInfo);
                 }
             }
+        }
 
-            //麻点图层
-            function prodTileLayer(filter){
-                if(customLayer) {
-                    map.removeTileLayer(customLayer);
-                }
-                customLayer=new BMap.CustomLayer({
-                    ak:'ir7jFwBM0tPkLebXl3ScT9cB',
-                    geotableId: 135736,
-                    q: '', //检索关键字
-                    tags: '', //空格分隔的多字符串
-                    filter: filter //过滤条件
-                });
-                map.addTileLayer(customLayer);
-                customLayer.addEventListener('hotspotclick',myHotspotclick);
-            }
-            function myHotspotclick(e){
-                var customPoi = e.customPoi;//poi的默认字段
-                var contentPoi=e.content;//poi的自定义字段
-                var searchInfoWindow = prodSearchInfoWindow(map,contentPoi);
-                var point = new BMap.Point(customPoi.point.lng, customPoi.point.lat);
-                searchInfoWindow.open(point);
-            }
-            prodTileLayer('');
 
-            //数据筛选
-            var checkbox = document.getElementsByTagName('input');
-            var require = {
-                distance:[],
-                type:[],
-                getMax: function () {
-                    var max = Math.max.apply(null, this.distance);
-                    return max;
-                },
-                getMin: function(){
-                    var min = Math.min.apply(null, this.distance);
-                    return min;
-                },
-                removeEle: function(index,arrName){
-                    if(index>-1){
-                        this[arrName].splice(index,1);
-                    }
-                }
-            };
-            for(var i=0;i<checkbox.length;i++){
-                checkbox[i].onclick = function(){
-                    if(this.checked){
-                        switch (this. getAttribute('data-label')){
-                            case 'distance':{
-                                var distance = (this.value);
-                                require.distance.push(parseInt(distance));
-                                var filter = getFilter(require);//获得条件
-                                refreshPage(filter);//刷新页面
-                                break;
-                            }
-                            case 'type':{
-                                require.type.push(parseInt(this.value));
-                                var filter = getFilter(require);
-                                refreshPage(filter);
-                                break;
-                            }
-                        }
-                    }
-                    else{
-                        switch (this. getAttribute('data-label')){
-                            case 'distance':{
-                                var distance = (this.value);
-                                var index = require.distance.indexOf(parseInt(distance));
-                                require.removeEle(index,'distance');
-                                var index = require.distance.indexOf(parseInt(distance));
-                                require.removeEle(index,'distance');
-                                var filter = getFilter(require);
-                                refreshPage(filter);
-                                break;
-                            }
-                            case 'type':{
-                                var index  = require.type.indexOf(parseInt(this.value));
-                                require.removeEle(index,'type');
-                                var filter = getFilter(require);
-                                refreshPage(filter);
-                                break;
-                            }
-                        }
-                    }
-                }
-            }
-            function getFilter(require){
-                var filter = '';
-                if(require.distance[0] === 0 || require.distance[0]){
-                    var price = 'distance:' + require.getMin() + ',' +require.getMax();
-                    filter += price;
-                }
-                console.log(require.type.length);
-                var type = require.type.length !==0  ? '|hotel_type:['+ require.type.join(',')+']' :'';
-                filter += type;
-                console.log('filter'+filter)
-                return filter;
-            }
+        //从后台获取钓场信息列表数组
+        function getfishingPlaceInfo(){
+            //alert(1);
+            var fishingPlaceInfo = [];
 
-            //刷新地图
-            function refreshPage(filter){
-                var url = 'http://api.map.baidu.com/geosearch/v3/nearby?ak=ir7jFwBM0tPkLebXl3ScT9cB&geotable_id=135736&location=116.395884,39.932154&radius=100000'
-                if(filter) {
-                    prodTileLayer(filter);
-                    url = url + '&filter=' + filter;
-                }
-                else{
-                    prodTileLayer('');
-                }
-                getfishingPlaceInfo(url,function(err,fishingPlaceInfo){
-                    if(err){
-                        console.log(err);
-                        insertData(err);
+            var species_of_fishes=document.getElementsByName("type");
+            var species_of_fish='';
+            for(var k=0;k<species_of_fishes.length;k++){
+                if(species_of_fishes[k].checked) {
+                    if(species_of_fishes[k].value=='1') {
+                        species_of_fish = '1';
+                        break;
                     }
-                    else {
-                        insertData(null,fishingPlaceInfo);
-                        addListen(fishingPlaceInfo);
-                    }
-                });
+                    else species_of_fish = species_of_fish + species_of_fishes[k].value+',';
+                }
             }
+            //alert(2);
+            var free_or_nots = document.getElementsByName("free_or_not");
+            var free_or_not='';
+            for(var i=0;i<free_or_nots.length;i++){
+                if(free_or_nots[i].checked){
+                    free_or_not = free_or_nots[i].value;
+                }
+            }
+            //alert(3);
+            var scores=document.getElementsByName("score");
+            var score='';
+            for(var i=0;i<scores.length;i++){
+                if(scores[i].checked){
+                    score = scores[i].value;
+                }
+            }
+            //alert(4);
+            var distances=document.getElementsByName("distance");
+            var distance='';
+            for(var i=0;i<distances.length;i++){
+                if(distances[i].checked){
+                    distance = distances[i].value;
+                }
+            }
+            //alert(5);
+            url = url+"?longitude="+currentLongitude+"&latitude="+currentLatitude+"&species_of_fish="+species_of_fish+"&free_or_not="+free_or_not+"&score="+score+"&distance="+distance;
+            alert(url);
+            //var f_html=document.getElementById('fishingPlace').innerHTML;
+            //document.getElementById('fishingPlace').innerHTML;
+            $.ajax({
+                type:'get',
+                url:url,
+                dataType:'json',
+                success:function(data){
+                    var fishingPlace={};
+                    var arr = eval(data);
+                    alert(arr.length);
+                    for(var m = 0; m < arr.length; m++){
+                        fishingPlace.longitude = arr[m].fishingPlace.longitude;
+                        fishingPlace.latitude = arr[m].fishingPlace.latitude;
+                        fishingPlace.fishing_place_name = arr[m].fishingPlace.fishing_place_name;
+                        fishingPlace.species_of_fish = arr[m].fishingPlace.species_of_fish;
+                        fishingPlace.free_or_not = arr[m].fishingPlace.free_or_not;
+                        fishingPlace.discoverer_name = arr[m].fishingPlace.discoverer_name;
+                        fishingPlace.score = arr[m].fishingPlace.score;
+                        //alert(arr[m].fishingPlace.fishing_place_name);
 
-            var url = 'http://api.map.baidu.com/geosearch/v3/nearby?ak=ir7jFwBM0tPkLebXl3ScT9cB&geotable_id=135736&location=116.395884,39.932154&radius=100000'
-            getfishingPlaceInfo(url,function(err,fishingPlaceInfo){
-                insertData(err,fishingPlaceInfo);
-                if(!err) {
-                    addListen(fishingPlaceInfo);
+                        fishingPlaceInfo.push(fishingPlace);
+                    }
+                    alert("fishingPlaceInfo长度:"+fishingPlaceInfo.length);
+                    document.getElementById('fishingPlace').innerHTML = "<span>测试</span><br/>"+f_html;
                 }
             });
+            url = '<%=request.getContextPath()%>/getFishingPlaceInfo';
+            //alert(6);
+            init();
         }
+
+        //刷新地图
+        function refresh(fishingPlaceInfo) {
+
+        }
+
     </script>
 </head>
 <body>
-欢迎 <a href="./userInformation?u_name=${u_name}">${u_name}</a> 登陆系统！ <a href="./quit">退出</a><br/>
+<%--欢迎 <a href="./userInformation?u_name=${user.u_name}">${user.u_name}</a> 登陆系统！ <a href="./quit">退出</a><br/>--%>
 <%--<img src="<%=request.getContextPath()%>/images/1.jpg"  alt="加载图片aa" width="100" height="100"/>--%>
-<a href="./fishingPlace?u_name=${u_name}">添加钓点</a>
+<a href="./fishingPlace?u_name=${user.u_name}">添加钓点</a>
 <div class="container clearfloat">
     <div class="select-cont">
         <div class="menu clearfloat">
@@ -460,10 +565,10 @@
                     <li>
                         <span>距离范围</span>
                         <div>
-                            <input type="radio" value="1" class="distance" name="distance" checked/>不限
+                            <input type="radio" value="1" class="distance" name="distance"  checked/>不限
                             <input type="radio" value="1000" class="distance" name="distance" />1000米以下
                             <br/>
-                            <input type="radio" value="5000" class="distance" name="distance"/>5000米以下
+                            <input type="radio" value="5000" class="distance" name="distance" />5000米以下
                             <input type="radio" value="10000" class="distance" name="distance"/>10000米以下
                             <br/>
                             <input type="radio" value="20000" class="distance" name="distance"/>20000米以下
@@ -473,25 +578,55 @@
                         <span>鱼的种类</span>
                         <div>
                             <input type="checkbox" value="1" class="type" name="type" checked/>不限
-                            <input type="checkbox" value="2" class="type" name="type"/>鲈鱼
+                            <input type="checkbox" value="鲈鱼" class="type" name="type"/>鲈鱼
                             <br/>
-                            <input type="checkbox" value="3" class="type" name="type"/>鳟鱼
-                            <input type="checkbox" value="4" class="type" name="type"/>罗非鱼
+                            <input type="checkbox" value="鳟鱼" class="type" name="type"/>鳟鱼
+                            <input type="checkbox" value="罗非鱼" class="type" name="type"/>罗非鱼
                             <br/>
-                            <input type="checkbox" value="5" class="type" name="type"/>鲤鱼
-                            <input type="checkbox" value="6" class="type" name="type"/>草鱼
+                            <input type="checkbox" value="鲤鱼" class="type" name="type"/>鲤鱼
+                            <input type="checkbox" value="草鱼" class="type" name="type"/>草鱼
+                            <br/>
+                            <input type="checkbox" value="鳊鱼" class="type" name="type"/>鳊鱼
+                            <input type="checkbox" value="鲴鱼" class="type" name="type"/>鲴鱼
+                            <br/>
+                            <input type="checkbox" value="黑鱼" class="type" name="type"/>黑鱼
+                            <input type="checkbox" value="鲫鱼" class="type" name="type"/>鲫鱼
+                            <br/>
+                            <input type="checkbox" value="青鱼" class="type" name="type"/>青鱼
+                        </div>
+                    </li>
+                    <li>
+                        <span>是否收费</span>
+                        <div>
+                            <input type="radio" value="1" class="type" name="free_or_not" checked/>不限
+                            <input type="radio" value="是" class="type" name="free_or_not"/>收费
+                            <input type="radio" value="否" class="type" name="free_or_not"/>免费
+                        </div>
+                    </li>
+                    <li>
+                        <span>评分</span>
+                        <div>
+                            <input type="radio" value="1" class="type" name="score" checked/>不限
+                            <input type="radio" value="2" class="type" name="score"/>1分以上
+                            <br/>
+                            <input type="radio" value="3" class="type" name="score"/>2分以上
+                            <input type="radio" value="4" class="type" name="score"/>3分以上
+                            <br/>
+                            <input type="radio" value="5" class="type" name="score"/>4分以上
+                            <input type="radio" value="6" class="type" name="score"/>5分
                         </div>
                     </li>
                 </ul>
+                <button onclick="getfishingPlaceInfo()">&nbsp;&nbsp;&nbsp;查询&nbsp;&nbsp;&nbsp;</button><br/>
             </div>
 
 
             <div id="fishingPlace">
                 <div class="clearfloat fishingPlace">
                     <dl>
-                        <dd><img src="{{imgSrc}}"/></dd>
+                        <dd><img src="<%=request.getContextPath()%>/images/2.jpg"/></dd>
                         <dt>{{name}}</dt>
-                        <dt>{{address}}</dt>
+                        <dt><a href="<%=request.getContextPath()%>/fishingPlaceDetails?{{address}}" >{{address}}</a></dt>
                     </dl>
                     <span class="price">{{price}}</span>
                 </div>

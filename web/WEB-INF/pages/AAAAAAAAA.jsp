@@ -70,6 +70,7 @@
 </form>
 <button id="button_submit" >提交</button>
 <button type="reset" >重置</button>
-<button id="getJson" >从后台获取json数据解析到前台</button>
+<button id="getJson" >从后台获取json数据解析到前台</button><br/>
+<iframe height="700" width="1000" marginheight="2" marginwidth="2" src="http://localhost:8080/graduationProject/map.html" />
 </body>
 </html>

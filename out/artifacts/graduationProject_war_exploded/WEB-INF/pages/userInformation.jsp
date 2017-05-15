@@ -19,7 +19,7 @@
     </script>
 </head>
 <body>
-欢迎 <a href="./userInformation?u_name=${u_name}">${u_name}</a> 登陆系统！ <a href="./quit">退出</a>
+<%--欢迎 <a href="./userInformation?u_name=${u_name}">${u_name}</a> 登陆系统！ <a href="./quit">退出</a>--%>
 <center>
     <h1 style="color:blue;">用户个人信息界面</h1>
     <h2>姓名：${u_name}</h2>
@@ -30,14 +30,14 @@
     <h2>简介：${u_description}</h2>
     <input type="button" value="修改个人资料" onclick="javascript:button_onclick();"/>
 </center>
-<%
-    LinkedList<String> list = (LinkedList<String>) request.getAttribute("list");
-    Iterator<String> iterator = list.iterator();
-    while(iterator.hasNext()){
-        out.println(iterator.next());
-        out.println("<br/>");
-    }
-%>
-<a href="./mainPage?u_name=${u_name}">返回</a>
+<%--<%--%>
+    <%--LinkedList<String> list = (LinkedList<String>) request.getAttribute("list");--%>
+    <%--Iterator<String> iterator = list.iterator();--%>
+    <%--while(iterator.hasNext()){--%>
+        <%--out.println(iterator.next());--%>
+        <%--out.println("<br/>");--%>
+    <%--}--%>
+<%--%>--%>
+<%--<a href="./mainPage?u_name=${u_name}">返回</a>--%>
 </body>
 </html>

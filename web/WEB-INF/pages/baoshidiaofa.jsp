@@ -9,6 +9,13 @@
 <html>
 <head>
     <title>包食钓法</title>
+    <link rel="stylesheet" href="./css/fishingKnowlege.css">
+    <style>
+        body{
+            margin:0;
+            padding:0;
+        }
+    </style>
 </head>
 <body>
 <div class="view-left">

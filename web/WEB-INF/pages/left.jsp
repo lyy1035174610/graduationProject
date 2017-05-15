@@ -60,33 +60,17 @@ function list(idstr){
 				<table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
 				  <tr>
 					<td width="25%" rowspan="2"><img src="<%=request.getContextPath()%>/images/1.jpg" width="35" height="35" /></td>
-					<td width="75%" height="22" class="left-font01">您好，<span class="left-font02">${loginUser.identity==1?"admin":"HR" }</span></td>
+					<td width="75%" height="22" class="left-font01">您好，<span class="left-font02">${user.u_name}</span></td>
 				  </tr>
 				  <tr>
 					<td height="22" class="left-font01">
-						[&nbsp;<a href="<%=request.getContextPath()%>/doLogout" target="_top" class="left-font01">退出</a>&nbsp;]</td>
+						[&nbsp;<a href="<%=request.getContextPath()%>/quit" target="_top" class="left-font01">退出</a>&nbsp;]</td>
 				  </tr>
 				</table>
 			</td>
 		  </tr>
 		</table>
 			<%--顶部用户信息部分结束--%>
-
-		<!--  论坛模块开始    -->
-		<TABLE width="100%" border="0" cellpadding="0" cellspacing="0" class="left-table03">
-          <tr>
-            <td height="29">
-				<table width="85%" border="0" align="center" cellpadding="0" cellspacing="0">
-					<tr>
-						<td width="8%"><img name="img1" id="img1" src="<%=request.getContextPath()%>/images/1.jpg" width="8" height="11" /></td>
-						<td width="92%">
-								<a href="<%=request.getContextPath() %>/BBSPage?u_name=kk" target="mainFrame" class="left-font03" onClick="list('8');" >论坛模块</a></td>
-					</tr>
-				</table>
-			</td>
-          </tr>
-		</TABLE>
-		<!--  论坛模块结束    -->
 
 		<!-- 钓场模块开始    -->
 		<TABLE width="100%" border="0" cellpadding="0" cellspacing="0" class="left-table03">
@@ -96,7 +80,7 @@ function list(idstr){
 					<tr>
 						<td width="8%"><img name="img2" id="img2" src="<%=request.getContextPath()%>/images/1.jpg" width="8" height="11" /></td>
 						<td width="92%">
-							<a href="<%=request.getContextPath() %>/testMapAPI?u_name=kk" target="mainFrame" class="left-font03" onClick="list('7');" >钓场模块</a></td>
+							<a href="<%=request.getContextPath() %>/testMapAPI?u_name=${user.u_name}" target="mainFrame" class="left-font03" onClick="list('7');" >钓场模块</a></td>
 					</tr>
 				</table>
 			</td>
@@ -128,13 +112,29 @@ function list(idstr){
 					<tr>
 						<td width="8%"><img name="img4" id="img4" src="<%=request.getContextPath()%>/images/1.jpg" width="8" height="11" /></td>
 						<td width="92%">
-							<a href="<%=request.getContextPath() %>/userInformation?u_name=kk" target="mainFrame" class="left-font03" onClick="list('7');" >个人主页</a></td>
+							<a href="<%=request.getContextPath() %>/userInformation?u_name=${user.u_name}" target="mainFrame" class="left-font03" onClick="list('7');" >个人主页</a></td>
 					</tr>
 				</table>
 			</td>
           </tr>
 		</TABLE>
 		<!--  个人主页结束    -->
+
+			<!--  留言模块开始    -->
+			<TABLE width="100%" border="0" cellpadding="0" cellspacing="0" class="left-table03">
+				<tr>
+					<td height="29">
+						<table width="85%" border="0" align="center" cellpadding="0" cellspacing="0">
+							<tr>
+								<td width="8%"><img name="img1" id="img1" src="<%=request.getContextPath()%>/images/1.jpg" width="8" height="11" /></td>
+								<td width="92%">
+									<a href="<%=request.getContextPath() %>/BBSPage?u_name=${user.u_name}" target="mainFrame" class="left-font03" onClick="list('8');" >留言模块</a></td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</TABLE>
+			<!--  留言模块结束    -->
 
 		</TD>
 	</tr>

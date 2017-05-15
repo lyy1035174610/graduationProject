@@ -9,14 +9,17 @@
 <html>
 <head>
     <title>钓鱼百科</title>
+    <link rel="stylesheet" href="./css/fishingKnowlege.css">
 </head>
 <body>
+<br/>
 <center>
-    <h1>钓鱼百科</h1>
+    <h1><b>钓鱼百科</b></h1>
 </center>
+<br/><br/>
 <div class="rumen-nav">
     <a name="baike"></a>
-    <h2 class="rumen-nav-title title">入门百科</h2>
+
     <div class="class-lable-box" style="position: static;">
         <dl class="class-lable">
             <dt><span class="title">渔具百科</span></dt>

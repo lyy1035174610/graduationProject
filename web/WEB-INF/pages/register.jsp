@@ -54,10 +54,6 @@
         <td><input type="text" name="u_email"/></td>
       </tr>
       <tr>
-        <td>上传头像：</td>
-        <td><input type="file" name="head_picture"/></td>
-      </tr>
-      <tr>
         <td>服务协议：</td>
         <td><textarea rows="10" cols="40">你是白痴！</textarea></td>
       </tr>

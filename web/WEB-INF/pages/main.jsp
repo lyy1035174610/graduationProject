@@ -14,7 +14,7 @@
     <frame src="<%=request.getContextPath()%>/top" name="topFrame" scrolling="no" noresize="noresize" id="topFrame" title="topFrame" />
     <frameset cols="213,*" frameborder="no" border="0" framespacing="0">
         <frame src="<%=request.getContextPath()%>/left" name="leftFrame" scrolling="no" noresize="noresize" id="leftFrame" title="leftFrame" />
-        <frame src="<%=request.getContextPath()%>/testMapAPI?u_name=哈哈" name="mainFrame" id="mainFrame" title="mainFrame" />
+        <frame src="<%=request.getContextPath()%>/testMapAPI?u_name=${user.u_name}" name="mainFrame" id="mainFrame" title="mainFrame" />
     </frameset>
 </frameset>
 <noframes>
