@@ -13,7 +13,7 @@
     <script>
         function button_onclick(){
             //在当前也面进行跳转
-            window.location.href="./alterUserInformation?u_name=${u_name}";
+            window.location.href="./alterUserInformation?u_name=${user.u_name}";
             alert("将要进入个人信息修改页面");
         }
     </script>
@@ -29,6 +29,7 @@
     <h2>邮箱：${u_email}</h2>
     <h2>简介：${u_description}</h2>
     <input type="button" value="修改个人资料" onclick="javascript:button_onclick();"/>
+
 </center>
 <%--<%--%>
     <%--LinkedList<String> list = (LinkedList<String>) request.getAttribute("list");--%>

@@ -20,7 +20,7 @@
     <script src="http://api.map.baidu.com/api?v=1.4" type="text/javascript"></script>
 </head>
 <body>
-欢迎 <a href="./userInformation?u_name=${u_name}">${u_name}</a> 登陆系统！ <a href="./quit">退出</a><br/>
+欢迎 <a href="./userInformation?u_name=${user.u_name}">${user.u_name}</a> 登陆系统！ <a href="./quit">退出</a><br/>
 <input type="text" id="cityName" value="广州"/>
 <input type="button" onclick="setCity()" value="查找" />
 <div id="container" style="width:1024px;height:600px;"></div>

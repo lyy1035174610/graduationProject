@@ -1,12 +1,14 @@
 package com.liyingyu.controller;
 
 import com.liyingyu.bean.JdbcUtils;
+import com.liyingyu.entity.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,7 +21,10 @@ import java.util.LinkedList;
 @Controller
 public class UserInformationController {
     @RequestMapping("/userInformation")
-    public ModelAndView login(@RequestParam("u_name") String u_name, HttpServletRequest request){
+    public ModelAndView login(HttpServletRequest request, HttpSession session){
+        User user = (User)session.getAttribute("user");
+        String u_name = user.getU_name();
+        System.out.println(u_name);
         ModelAndView model = new ModelAndView("userInformation");
         Connection conn = null;
         String sql=null;
@@ -56,7 +61,7 @@ public class UserInformationController {
             request.setAttribute("list",list);
         } catch (SQLException e) {
             e.printStackTrace();
-            return new ModelAndView("login2");
+            return new ModelAndView("login");
         }finally {
             JdbcUtils.free(conn,pstmt,rs);
         }
@@ -64,15 +69,15 @@ public class UserInformationController {
     }
 
     @RequestMapping("/alterUserInformation")
-    public ModelAndView alterUserInformation(@RequestParam("u_name") String u_name,HttpServletRequest request){
+    public ModelAndView alterUserInformation(HttpSession session,HttpServletRequest request){
+        User user = (User)session.getAttribute("user");
+        String u_name = user.getU_name();
         return new ModelAndView("/alterUserInformation","u_name",u_name);
     }
 
     @RequestMapping("/saveChange")
-    public ModelAndView saveChange( HttpServletRequest request){
+    public ModelAndView  saveChange( HttpServletRequest request){
         String u_name = request.getParameter("u_name");
-        if (!request.getParameter("u_password1").equals(request.getParameter("u_password2")))//新密码前后不一致时返回个人信息页面
-            return login(u_name,request);
         PreparedStatement pstmt = null;
         Connection conn = null;
         ResultSet rs = null;
@@ -90,18 +95,28 @@ public class UserInformationController {
             pstmt = conn.prepareStatement(sql);
             rs = pstmt.executeQuery();
             while(rs.next()){
-                if(!rs.getString(0).equals(oldPassword))//密码不正确时返回个人信息页面
-                    return login(u_name,request);
+                if(!rs.getString("u_password").equals(oldPassword)) {//密码不正确时返回个人信息页面
+                    request.setAttribute("err","旧密码输入有误！");
+                    return new ModelAndView("alterUserInformation","u_name",u_name);
+                }
             }
-            sql = "update user set u_password='"+u_password+"',u_email='"+u_email+"',u_phone='"+u_phone+"',u_sex='"+u_sex+"',u_age="+u_age+"where u_name='"+u_name+"'";
+            sql = "update user set u_password='"+u_password+"',u_email='"+u_email+"',u_phone='"+u_phone+"',u_sex='"+u_sex+"',u_age="+u_age+" where u_name='"+u_name+"'";
+            System.out.println(sql);
             pstmt = conn.prepareStatement(sql);
             pstmt.execute();
         }catch (SQLException e){
             e.printStackTrace();
-            return login(u_name,request);
+            request.setAttribute("err","旧密码输入有误！");
+            return new ModelAndView("alterUserInformation","u_name",u_name);
         }finally {
             JdbcUtils.free(conn,pstmt);
         }
-        return login(u_name,request);
+        System.out.println("yessss");
+        return new ModelAndView("success");
     }
+    @RequestMapping("/success")
+    public String success(){
+        return "success";
+    }
+
 }

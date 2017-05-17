@@ -243,6 +243,7 @@
         var currentLatitude;
         var url = '<%=request.getContextPath()%>/getFishingPlaceInfo';
         var f_html='';
+        var map;
         window.onload=function init() {
             var sidebar_filter = document.getElementById('sidebar-filter');
             var sidebar_fishingPlace = document.getElementById('sidebar-fishingPlace');
@@ -253,7 +254,7 @@
             var fishingPlace_html = fishingPlace.innerHTML;
             f_html=fishingPlace_html;
            // var customLayer;
-            var map = new BMap.Map("map-cont",{enableMapClick:false});
+            map = new BMap.Map("map-cont",{enableMapClick:false});
             var point = new BMap.Point(113.270793,23.135308);
             var navigationControl = new BMap.NavigationControl();
             var geolocation = new BMap.Geolocation();
@@ -471,7 +472,8 @@
         //从后台获取钓场信息列表数组
         function getfishingPlaceInfo(){
             //alert(1);
-            var fishingPlaceInfo = [];
+            //var fishingPlaceInfo = [];
+            fishingPlaceInfo = [];
 
             var species_of_fishes=document.getElementsByName("type");
             var species_of_fish='';
@@ -520,7 +522,10 @@
                 success:function(data){
                     var fishingPlace={};
                     var arr = eval(data);
+                    var html='';
+                    var money;
                     alert(arr.length);
+                    map = new BMap.Map("map-cont",{enableMapClick:false});
                     for(var m = 0; m < arr.length; m++){
                         fishingPlace.longitude = arr[m].fishingPlace.longitude;
                         fishingPlace.latitude = arr[m].fishingPlace.latitude;
@@ -530,21 +535,115 @@
                         fishingPlace.discoverer_name = arr[m].fishingPlace.discoverer_name;
                         fishingPlace.score = arr[m].fishingPlace.score;
                         //alert(arr[m].fishingPlace.fishing_place_name);
-
+                        money=fishingPlace.free_or_not=="是"?"免费":"收费";
+                        html  +=  f_html
+                            .replace(/\{\{name\}\}/g,fishingPlace.fishing_place_name)
+                            .replace(/\{\{address\}\}/g,"longitude="+fishingPlace.longitude+"&latitude="+fishingPlace.latitude)
+                            .replace(/\{\{price\}\}/g,money);
                         fishingPlaceInfo.push(fishingPlace);
+                        refresh(fishingPlaceInfo);
                     }
                     alert("fishingPlaceInfo长度:"+fishingPlaceInfo.length);
-                    document.getElementById('fishingPlace').innerHTML = "<span>测试</span><br/>"+f_html;
+                    document.getElementById('fishingPlace').innerHTML = html;
+                    //refresh(fishingPlaceInfo);
+                    alert("AAfishingPlaceInfo长度:"+fishingPlaceInfo.length);
                 }
             });
             url = '<%=request.getContextPath()%>/getFishingPlaceInfo';
             //alert(6);
+            //refresh(fishingPlaceInfo);
+            //alert("AAfishingPlaceInfo长度:"+fishingPlaceInfo.length);
             init();
         }
 
         //刷新地图
         function refresh(fishingPlaceInfo) {
 
+            var point = new BMap.Point(113.270793,23.135308);
+            var navigationControl = new BMap.NavigationControl();
+            map.centerAndZoom(point, 15);
+            map.enableScrollWheelZoom(true);
+            navigationControl.setOffset(new BMap.Size(40,40));
+            map.addControl(navigationControl);
+            function ComplexCustomOverlay(point, text, mouseoverText){
+                this._point = point;
+                this._text = text;
+                this._overText = mouseoverText;
+            }
+            ComplexCustomOverlay.prototype = new BMap.Overlay();
+            ComplexCustomOverlay.prototype.initialize = function(map){
+                this._map = map;
+                var div = this._div = document.createElement("div");
+                div.style.position = "absolute";
+                div.style.zIndex = BMap.Overlay.getZIndex(this._point.lat);
+                div.style.backgroundColor = "#EE5D5B";
+                div.style.border = "1px solid #BC3B3A";
+                div.style.color = "white";
+                div.style.height = "18px";
+                div.style.padding = "2px";
+                div.style.lineHeight = "18px";
+                div.style.whiteSpace = "nowrap";
+                div.style.MozUserSelect = "none";
+                div.style.fontSize = "12px"
+                var span = this._span = document.createElement("span");
+                div.appendChild(span);
+                span.appendChild(document.createTextNode(this._text));
+                var that = this;
+
+                var arrow = this._arrow = document.createElement("div");
+                arrow.style.background = "url(http://map.baidu.com/fwmap/upload/r/map/fwmap/static/house/images/label.png) no-repeat";
+                arrow.style.position = "absolute";
+                arrow.style.width = "11px";
+                arrow.style.height = "10px";
+                arrow.style.top = "22px";
+                arrow.style.left = "10px";
+                arrow.style.overflow = "hidden";
+                div.appendChild(arrow);
+
+                div.onmouseover = function(){
+                    this.style.backgroundColor = "#6BADCA";
+                    this.style.borderColor = "#0000ff";
+                    this.getElementsByTagName("span")[0].innerHTML = that._overText;
+                    arrow.style.backgroundPosition = "0px -20px";
+                }
+
+                div.onmouseout = function(){
+                    this.style.backgroundColor = "#EE5D5B";
+                    this.style.borderColor = "#BC3B3A";
+                    this.getElementsByTagName("span")[0].innerHTML = that._text;
+                    arrow.style.backgroundPosition = "0px 0px";
+                }
+
+                map.getPanes().labelPane.appendChild(div);
+
+                return div;
+            }
+            ComplexCustomOverlay.prototype.draw = function(){
+                var mp = this._map;
+                var pixel = mp.pointToOverlayPixel(this._point);
+                this._div.style.left = pixel.x - parseInt(this._arrow.style.left) + "px";
+                this._div.style.top  = pixel.y - 30 + "px";
+            }
+
+            addMarker(new BMap.Point(currentLongitude,currentLatitude));
+
+            for(var i=0;i<fishingPlaceInfo.length;i++){
+                var money=fishingPlaceInfo[i].free_or_not=="是"?"免费":"收费";
+                var text=fishingPlaceInfo[i].fishing_place_name+"("+money+")";
+                var detailText=text+fishingPlaceInfo[i].species_of_fish;
+                //alert(detailText);
+                var point = new BMap.Point(fishingPlaceInfo[i].longitude,fishingPlaceInfo[i].latitude);
+                //alert(i+" : "+fishingPlaceInfo[i].longitude+","+fishingPlaceInfo[i].latitude+" "+text);
+                //addMarker(point);
+                var myCompOverlay = new ComplexCustomOverlay(point,text ,detailText);
+                map.addOverlay(myCompOverlay);
+            }
+            //添加自定义覆盖物,<-------结束------->
+            //在地图添加标记
+            function addMarker(point){
+                var marker = new BMap.Marker(point);
+                map.addOverlay(marker);
+            }
         }
 
     </script>
@@ -626,7 +725,7 @@
                     <dl>
                         <dd><img src="<%=request.getContextPath()%>/images/2.jpg"/></dd>
                         <dt>{{name}}</dt>
-                        <dt><a href="<%=request.getContextPath()%>/fishingPlaceDetails?{{address}}" >{{address}}</a></dt>
+                        <dt><a href="<%=request.getContextPath()%>/fishingPlaceDetails?{{address}}" target="_blank">{{address}}</a></dt>
                     </dl>
                     <span class="price">{{price}}</span>
                 </div>

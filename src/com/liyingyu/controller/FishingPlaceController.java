@@ -191,6 +191,9 @@ public class FishingPlaceController {
             //sql = sql.append(subSQLFree_or_not+" and "+subSQLSpecies+" and "+subSQLScore);
             System.out.println(sql.toString());
             System.out.print("55555555");
+            if(!species_of_fish.equals("1")){
+                sql = new StringBuilder("select * from fishing_Place where score>1");
+            }
             pstmt = conn.prepareStatement(sql.toString());
             rs = pstmt.executeQuery();
             double longitude1;
