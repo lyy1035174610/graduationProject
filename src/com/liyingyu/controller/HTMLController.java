@@ -9,9 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class HTMLController {
     @RequestMapping("/baozhagou")
-    public String baozhagou(){
-        return "baozhagou";
-    }
+    public String baozhagou(){return "baozhagou";}
 
     @RequestMapping("/dangzhen")
     public String dangzhen(){ return "dangzhen"; }

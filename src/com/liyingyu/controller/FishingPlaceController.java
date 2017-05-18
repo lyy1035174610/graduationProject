@@ -77,11 +77,11 @@ public class FishingPlaceController {
     }
 
     @RequestMapping("/addScore")
-    public ModelAndView addScore(HttpServletRequest request){
+    public void addScore(HttpServletRequest request){
 //        PreparedStatement pstmt = null;
 //        Connection conn = null;
 //        try {
-//            String sql = "insert into fishing_place(longitude,latitude,fishing_place_name,species_of_fish,free_or_not,discoverer_name) values("+longitude+","+latitude+",'"+fishing_place_name+"','"+species_of_fish+"','"+free_or_not+"','"+discoverer_name+"')";
+//            String sql = "insert into score(longitude,latitude,u_name,score) values("+longitude+","+latitude+",'"+fishing_place_name+"','"+species_of_fish+"','"+free_or_not+"','"+discoverer_name+"')";
 //            System.out.println(sql);
 //            pstmt = conn.prepareStatement(sql);
 //            pstmt.execute();
@@ -91,7 +91,7 @@ public class FishingPlaceController {
 //        }finally {
 //            JdbcUtils.free(conn,pstmt);
 //        }
-        return new ModelAndView("/testMapAPI");
+//        return new ModelAndView("/testMapAPI");
     }
 
     @RequestMapping("/fishingPlaceDetails")
@@ -193,7 +193,13 @@ public class FishingPlaceController {
             System.out.print("55555555");
             if(!species_of_fish.equals("1")){
                 sql = new StringBuilder("select * from fishing_Place where score>1");
+            }else
+            if(distance != 1){
+                sql = new StringBuilder("select * from fishing_Place where longitude<113.419265 and longitude>113.371259");
             }
+            //113.403024,23.039962
+            //113.419265,23.052732
+            //113.371259,23.047145
             pstmt = conn.prepareStatement(sql.toString());
             rs = pstmt.executeQuery();
             double longitude1;

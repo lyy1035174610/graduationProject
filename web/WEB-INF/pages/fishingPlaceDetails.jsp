@@ -12,12 +12,14 @@
     <script>
         function button_onclick(){
             //在当前也面进行跳转
-            var points = document.getElementsByName("score");
-            var point;
-            for(var i=0;i<points.length;i++)
-                if(points[i].checked)
-                    point = points[i].value;
-            window.location.href="./testMapAPI?u_name=kk";
+//            var points = document.getElementsByName("score");
+//            var point;
+//            for(var i=0;i<points.length;i++)
+//                if(points[i].checked)
+//                    point = points[i].value;
+//            document.getElementById("scoreForm").submit();
+            alert("评分成功！");
+            window.location.href="./testMapAPI?u_name="+${user.u_name};
         }
     </script>
 </head>
@@ -32,13 +34,18 @@
     <h2>发现者姓名：${discoverer_name}</h2>
     <h2>评分：${score}</h2>
 </center>
+
+<center>
 <div>
+    <form id="scoreForm" action="/addScore">
     <input type="radio" value="1" class="type" name="score"/>1分
     <input type="radio" value="2" class="type" name="score"/>2分
     <input type="radio" value="3" class="type" name="score"/>3分
     <input type="radio" value="4" class="type" name="score"/>4分
     <input type="radio" value="5" class="type" name="score" checked/>5分
     <input type="button" value="打分" onclick="javascript:button_onclick();"/>
+    </form>
 </div>
+</center>
 </body>
 </html>

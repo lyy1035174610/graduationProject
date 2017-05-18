@@ -255,7 +255,7 @@
             f_html=fishingPlace_html;
            // var customLayer;
             map = new BMap.Map("map-cont",{enableMapClick:false});
-            var point = new BMap.Point(113.270793,23.135308);
+            var point = new BMap.Point(113.404533,23.041957);
             var navigationControl = new BMap.NavigationControl();
             var geolocation = new BMap.Geolocation();
             var checkbox = document.getElementsByTagName('input');
@@ -301,12 +301,12 @@
             //定位当前坐标
             geolocation.getCurrentPosition(function(r){
                 if(this.getStatus() == BMAP_STATUS_SUCCESS){
-                    var mk = new BMap.Marker(r.point);
+                    var mk = new BMap.Marker(new BMap.Point(113.404533,23.041957));
                     map.addOverlay(mk);
                     map.panTo(r.point);
-                    currentLongitude = r.point.lng;
-                    currentLatitude = r.point.lat;
-                    alert('您的位置：'+r.point.lng+','+r.point.lat);
+                    currentLongitude = 113.404533;
+                    currentLatitude = 23.041957;
+                   // alert('您的位置：'+r.point.lng+','+r.point.lat);
                 }
                 else {
                     alert('failed'+this.getStatus());
@@ -412,7 +412,7 @@
 
             function addListen(fishingPlaceInfo){
                 var fishingPlaceI = document.getElementsByClassName('fishingPlace');
-                alert(fishingPlaceI.length);
+                //alert(fishingPlaceI.length);
                 for(var i=0 ; i<fishingPlaceI.length; i++) {
                     money=fishingPlaceInfo[i].free_or_not=="是"?"免费":"收费";
                     text=fishingPlaceInfo[i].fishing_place_name+"("+money+")";
@@ -512,7 +512,7 @@
             }
             //alert(5);
             url = url+"?longitude="+currentLongitude+"&latitude="+currentLatitude+"&species_of_fish="+species_of_fish+"&free_or_not="+free_or_not+"&score="+score+"&distance="+distance;
-            alert(url);
+            //alert(url);
             //var f_html=document.getElementById('fishingPlace').innerHTML;
             //document.getElementById('fishingPlace').innerHTML;
             $.ajax({
@@ -524,7 +524,7 @@
                     var arr = eval(data);
                     var html='';
                     var money;
-                    alert(arr.length);
+                    alert("查询钓场数为："+arr.length);
                     map = new BMap.Map("map-cont",{enableMapClick:false});
                     for(var m = 0; m < arr.length; m++){
                         fishingPlace.longitude = arr[m].fishingPlace.longitude;
@@ -543,10 +543,10 @@
                         fishingPlaceInfo.push(fishingPlace);
                         refresh(fishingPlaceInfo);
                     }
-                    alert("fishingPlaceInfo长度:"+fishingPlaceInfo.length);
+                    //alert("fishingPlaceInfo长度:"+fishingPlaceInfo.length);
                     document.getElementById('fishingPlace').innerHTML = html;
                     //refresh(fishingPlaceInfo);
-                    alert("AAfishingPlaceInfo长度:"+fishingPlaceInfo.length);
+                    //alert("AAfishingPlaceInfo长度:"+fishingPlaceInfo.length);
                 }
             });
             url = '<%=request.getContextPath()%>/getFishingPlaceInfo';

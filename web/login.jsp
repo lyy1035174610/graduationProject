@@ -140,6 +140,9 @@
         <div class="ahref">
             <a href="./register">去注册</a>
         </div>
+        <div class="ahref">
+            <a href="./adminLogin">管理员登陆</a>
+        </div>
     </div>
 </form>
 </body>

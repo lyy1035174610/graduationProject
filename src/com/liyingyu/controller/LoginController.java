@@ -2,6 +2,7 @@ package com.liyingyu.controller;
 
 import com.liyingyu.bean.JdbcUtils;
 import com.liyingyu.entity.User;
+import com.sun.javafx.sg.prism.NGShape;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,6 +12,8 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -54,13 +57,16 @@ public class LoginController {
         }
         return new ModelAndView("login","errMsg","账号或密码有误！");
     }
+
     @RequestMapping("/mainPage")
     public ModelAndView returnMainPage(@RequestParam("u_name") String u_name){
         return new ModelAndView("/mainPage","u_name",u_name);
     }
+
     @RequestMapping("/quit")
     public ModelAndView quit(HttpSession session){
         session.removeAttribute("user");
         return new ModelAndView("login");
     }
+
 }

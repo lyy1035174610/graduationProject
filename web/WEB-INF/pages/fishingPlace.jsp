@@ -20,7 +20,7 @@
     <script src="http://api.map.baidu.com/api?v=1.4" type="text/javascript"></script>
 </head>
 <body>
-欢迎 <a href="./userInformation?u_name=${user.u_name}">${user.u_name}</a> 登陆系统！ <a href="./quit">退出</a><br/>
+<%--欢迎 <a href="./userInformation?u_name=${user.u_name}">${user.u_name}</a> 登陆系统！ <a href="./quit">退出</a><br/>--%>
 <input type="text" id="cityName" value="广州"/>
 <input type="button" onclick="setCity()" value="查找" />
 <div id="container" style="width:1024px;height:600px;"></div>
@@ -37,17 +37,17 @@
         <tr>
             <td>鱼的种类:</td>
             <td>
-                <input type="checkbox" value="1"  name="species_of_fish"/>青鱼
-                <input type="checkbox" value="2"  name="species_of_fish"/>鲈鱼
-                <input type="checkbox" value="3"  name="species_of_fish"/>鳟鱼
-                <input type="checkbox" value="4"  name="species_of_fish"/>罗非鱼
-                <input type="checkbox" value="5"  name="species_of_fish"/>鲤鱼
+                <input type="checkbox" value="青鱼"  name="species_of_fish"/>青鱼
+                <input type="checkbox" value="鲈鱼"  name="species_of_fish"/>鲈鱼
+                <input type="checkbox" value="鳟鱼"  name="species_of_fish"/>鳟鱼
+                <input type="checkbox" value="罗非鱼"  name="species_of_fish"/>罗非鱼
+                <input type="checkbox" value="鲤鱼"  name="species_of_fish"/>鲤鱼
                 <br/>
-                <input type="checkbox" value="6"  name="species_of_fish"/>草鱼
-                <input type="checkbox" value="7"  name="species_of_fish"/>鳊鱼
-                <input type="checkbox" value="8"  name="species_of_fish"/>鲴鱼
-                <input type="checkbox" value="9"  name="species_of_fish"/>黑鱼
-                <input type="checkbox" value="10"  name="species_of_fish"/>鲫鱼
+                <input type="checkbox" value="草鱼"  name="species_of_fish"/>草鱼
+                <input type="checkbox" value="鳊鱼"  name="species_of_fish"/>鳊鱼
+                <input type="checkbox" value="鲴鱼"  name="species_of_fish"/>鲴鱼
+                <input type="checkbox" value="黑鱼"  name="species_of_fish"/>黑鱼
+                <input type="checkbox" value="鲫鱼"  name="species_of_fish"/>鲫鱼
             </td>
         </tr>
         <tr>
@@ -59,7 +59,7 @@
         </tr>
         <tr>
             <td>发现者:</td>
-            <td><input type="text" id="discoverer_name" value="${u_name}" readonly name="discoverer_name"/></td>
+            <td><input type="text" id="discoverer_name" value="${user.u_name}" readonly name="discoverer_name"/></td>
         </tr>
     </table>
     <input type="submit" value="添加钓点">
