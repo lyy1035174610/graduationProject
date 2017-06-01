@@ -16,7 +16,8 @@ public class Suggest {
         Connection conn = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
-        String sql = " SELECT longitude,count(*) FROM user_scan_record group BY longitude";
+        String sql = " SELECT longitude,count(*) FROM user_scan_record where u_name='"+u_name+"' group BY longitude";
+        String sql2 = "SELECT longitude,count(*) FROM user_scan_record group BY longitude";
         double l=0;
         try {
             conn = JdbcUtils.getConnection();
